@@ -3,14 +3,6 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
 `Specificaitions`
-
-    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
-  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
- /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
-                |___/
-
-
 Angular CLI: 7.3.6
 Node: 11.6.0
 OS: win32 x64
