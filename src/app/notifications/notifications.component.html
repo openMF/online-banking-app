@@ -1,0 +1,61 @@
+<div class="container" data-aos="zoom-out">
+  <mat-card>
+
+    <mat-list role="list">
+      <mat-list-item role="listitem" class="header">RECENT</mat-list-item>
+      <mat-divider></mat-divider>
+      <div class="row" *ngFor="let item of recent; let i=index">
+        <mat-divider></mat-divider>
+        <div class="col-md-6">
+            
+            <div>
+                <mat-list-item role="listitem"> {{item}} The app has been updates to v 3.0!</mat-list-item>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <button class="delete gotoright"  (click)="deleteRecentNotification(i)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                <mat-icon>
+                  delete
+                </mat-icon>
+              </button>
+          </div>
+       
+        
+      </div>
+      
+      
+      
+    </mat-list>
+
+  </mat-card>
+
+  <mat-card>
+    
+      <mat-list role="list">
+          <mat-list-item role="listitem" class="header">EARLIER</mat-list-item>
+          <mat-divider></mat-divider>
+          <div class="row" *ngFor="let item of recent; let i=index">
+              <mat-divider></mat-divider>
+              <div class="col-md-6">
+                  
+                      <mat-list-item role="listitem"> {{item}} The app has been updates to v 3.0!</mat-list-item>
+                  
+              </div>
+              <div class="col-md-6">
+                  <button class="delete gotoright"  (click)="deleteEarlierNotification(i)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                      <mat-icon>
+                        delete_sweep
+                      </mat-icon>
+                    </button>
+                </div>
+             
+              
+            </div>
+            
+          
+        </mat-list>
+  
+    </mat-card>
+  
+
+</div>

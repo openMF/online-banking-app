@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="col-md-3" *ngFor="let item of items">
+    <mat-card class="upper-card shadow"  data-aos="flip-left">
+      <mat-card-header >
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title class="upper-card-title">TOTAL ACCOUNTS</mat-card-title>              
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <p class="upper-card-content">
+        500
+        </p>
+      </mat-card-content>
+   
+    </mat-card>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-6"  *ngFor="let item of items">
+  <mat-card class="mid-card shadow" data-aos="zoom-in-up">
+      <div>
+          <p class="mid-card-left">Total Accounts</p>
+          <p class="mid-card-right">45000.00</p>
+        </div>  
+      
+   
+    </mat-card>
+</div>
+</div>
+
+<!-- <div class="row">
+  <div class="col-md-6" *ngFor="let item of items2">
+    <mat-card class="chart-card shadow">
+       <mat-card-title>
+          Loan Account Overview
+       </mat-card-title>
+       <mat-card-content>
+          <app-doughnut-chart></app-doughnut-chart>
+       </mat-card-content>
+        
+     
+      </mat-card>
+      </div>
+      </div> -->
+
+
+      <div class="row" style="margin-bottom : 100px;">
+        <div class="col-lg-12">
+        <mat-card class="bottom-card shadow" data-aos="zoom-in-up">
+          <form class="example-form">
+
+            <div class="row">
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input style="width: 1000px;" matInput placeholder="Input">
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                
+                <mat-form-field class="example-full-width">
+                  <mat-select placeholder="Select">
+                    <mat-option value="savings">Savings</mat-option>
+                    <mat-option value="current">Current</mat-option>
+                    <mat-option value="loan">Loan</mat-option>
+
+
+                  </mat-select>
+                </mat-form-field>
+              
+              </div>
+              <div class="col-md-4">
+                
+                <mat-form-field class="example-full-width">
+                  <mat-select placeholder="Select">
+                    <mat-option value="savings">Savings</mat-option>
+                    <mat-option value="current">Current</mat-option>
+                    <mat-option value="loan">Loan</mat-option>
+
+
+                  </mat-select>
+                </mat-form-field>
+              
+              </div>
+            </div>
+
+
+            </form>
+          </mat-card>
+      </div>
+      </div>

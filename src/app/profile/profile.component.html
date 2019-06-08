@@ -1,0 +1,44 @@
+<div class="row" data-aos="zoom-out">
+  <div class="col-md-6">
+    <mat-card>
+      <form  #loginForm="ngForm" >
+        <mat-form-field class="language-container">
+            <mat-select placeholder="Translate">
+              <mat-option value="english">English (Default)</mat-option>
+              <mat-option value="hindi">Hindi</mat-option>
+              <mat-option value="marathi">Marathi</mat-option>
+            </mat-select>
+          </mat-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="username" name="username" required matInput placeholder="Username">
+          </mat-form-field>
+          <mat-form-field>
+              <input [(ngModel)]="password" name="password" type="password" required matInput placeholder="Password">
+            </mat-form-field>
+
+  </form>
+    </mat-card>
+  </div>
+  <div class="col-md-6">
+    <mat-card>
+      <form  #loginForm="ngForm" >
+        <mat-form-field class="language-container">
+            <mat-select placeholder="Translate">
+              <mat-option value="english">English (Default)</mat-option>
+              <mat-option value="hindi">Hindi</mat-option>
+              <mat-option value="marathi">Marathi</mat-option>
+            </mat-select>
+          </mat-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="username" name="username" required matInput placeholder="Username">
+          </mat-form-field>
+          <mat-form-field>
+              <input [(ngModel)]="password" name="password" type="password" required matInput placeholder="Password">
+            </mat-form-field>
+            <button type="submit"  mat-raised-button color="primary" (click)="login()">Login</button>
+
+
+  </form>
+    </mat-card>
+  </div>
+</div>
