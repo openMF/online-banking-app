@@ -3,9 +3,29 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
 `Specificaitions`
+
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+
+
 Angular CLI: 7.3.6
 Node: 11.6.0
 OS: win32 x64
+Angular:
+...
+
+Package                      Version
+------------------------------------------------------
+@angular-devkit/architect    0.13.6
+@angular-devkit/core         7.3.6
+@angular-devkit/schematics   7.3.6
+@schematics/angular          7.3.6
+@schematics/update           0.13.6
+rxjs                         6.3.3
+typescript                   3.2.4
 
 ## Development server
 
