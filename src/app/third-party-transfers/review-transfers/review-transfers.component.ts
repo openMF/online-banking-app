@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './review-transfers.component.html',
   styleUrls: ['./review-transfers.component.scss']
 })
-export class ReviewTransfersComponent implements OnInit {
+export class ReviewThirdPartyTransfersComponent implements OnInit {
 
   constructor() { }
 

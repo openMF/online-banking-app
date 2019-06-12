@@ -12,6 +12,8 @@ export interface DialogData {
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
+  username : string;
+  password : string;
   animal: string;
   name: string;
   constructor(
