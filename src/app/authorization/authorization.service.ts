@@ -13,7 +13,7 @@ export class AuthorizationService {
       this.userStatus = true;
     }
     else{
-      this.userStatus = true;
+      this.userStatus = false;
     }
     
   }
