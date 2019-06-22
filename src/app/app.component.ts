@@ -4,27 +4,28 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import * as AOS from 'aos';
 import { AuthorizationService } from './authorization/authorization.service';
 import { Router } from '@angular/router';
+import { AppService } from './app.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+  private _mobileQueryListener: () => void;
+  isLoggedIn = false;
 
-  ngOnInit(){
-    AOS.init(
-      {
-        duration: 600,
-        delay: 50,
-        once: true
-      }
-    );
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
+    private authorizationService : AuthorizationService,
+    private router : Router,
+    private appService : AppService) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+    this.appService.configObservable.subscribe(userstatus => {
+      this.isLoggedIn = userstatus;
+    })
   }
-  title = 'web-self-service-application';
-  mobileQuery: MediaQueryList;
-
-
-   sidenavContents : any = [
+  sidenavContents : any = [
     {
       title:"DASHBOARD",
       icon:"home",
@@ -119,17 +120,22 @@ export class AppComponent implements OnInit{
     
     
   ]
-  
-  private _mobileQueryListener: () => void;
-
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
-    private authorizationService : AuthorizationService,
-    private router : Router) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
-    
+  ngOnInit(){
+   
+    AOS.init(
+      {
+        duration: 600,
+        delay: 50,
+        once: true
+      }
+    );
   }
+  title = 'web-self-service-application';
+  mobileQuery: MediaQueryList;
+
+
+   
+  
   onNotificationComponent(){
     this.router.navigate(['notifications']);
   }

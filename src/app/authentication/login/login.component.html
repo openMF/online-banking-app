@@ -27,7 +27,7 @@
          
         <form  #loginForm="ngForm" >
               <mat-form-field class="language-container">
-                  <mat-select placeholder="Translate">
+                  <mat-select placeholder="Translate" [(ngModel)]="selected">
                     <mat-option value="english">English (Default)</mat-option>
                     <mat-option value="hindi">Hindi</mat-option>
                     <mat-option value="marathi">Marathi</mat-option>
@@ -41,7 +41,7 @@
                     <input [(ngModel)]="password" name="password" type="password" required matInput placeholder="Password">
                   </mat-form-field>
 
-                  <button type="submit"  mat-raised-button id="login-color" (click)="login()">Login</button>
+                  <button type="submit" [disabled]="!loginForm.valid"  mat-raised-button id="login-color" (click)="login()">Login</button>
         </form>
         <button mat-raised-button>Forgot Password ?</button>
         <button mat-raised-button color="accent" (click)="signup()">New User ? Sign Up</button>

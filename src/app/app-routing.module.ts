@@ -121,9 +121,9 @@ const routes: Routes = [
   component: HelpComponent, 
   canActivate: [AuthGuardGuard]},
 
-  {path: 'login',                  
-  component: LoginComponent,
-  },
+  // {path: 'login',                  
+  // component: LoginComponent,
+  // },
 
   {path: 'forgot-password',                  
   component: ForgotPasswordComponent,

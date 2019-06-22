@@ -44,6 +44,7 @@ import { HelpComponent } from './help/help.component';
 import { ChatsComponent } from './chats/chats.component';
 import { CommonComponent } from './common/common.component';
 import { CommonRoutingModule } from './common/common-routing.module';
+import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
@@ -88,14 +89,13 @@ import { CommonRoutingModule } from './common/common-routing.module';
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
-    CommonRoutingModule,
     ChartsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     ScrollingModule
   ],
-  providers: [AuthorizationService],
+  providers: [AuthorizationService,AppService],
   bootstrap: [AppComponent],
   entryComponents : [SignUpComponent,VerificationComponent]
 })

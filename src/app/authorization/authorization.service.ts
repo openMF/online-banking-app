@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthorizationService {
-  userStatus = true;
+  userStatus = false;
   constructor() { }
   login(username : string, password : string){
     if(username==='a' && password==='a'){
