@@ -9,7 +9,7 @@ export class AuthorizationService {
   userStatus = false;
   constructor() { }
   login(username : string, password : string){
-    if(username==='a' && password==='a'){
+    if(username==='selfservice' && password==='mifos'){
       this.userStatus = true;
     }
     else{
