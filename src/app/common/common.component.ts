@@ -2,30 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import {ChangeDetectorRef, OnDestroy} from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import * as AOS from 'aos';
-import { AuthorizationService } from './authorization/authorization.service';
-import { Router } from '@angular/router';
-import { AppService } from './app.service';
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
-export class AppComponent implements OnInit{
-  private _mobileQueryListener: () => void;
-  isLoggedIn = false;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
-    private authorizationService : AuthorizationService,
-    private router : Router,
-    private appService : AppService) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
-    this.appService.configObservable.subscribe(userstatus => {
-      this.isLoggedIn = userstatus;
-    })
+import { Router } from '@angular/router';
+import { AuthorizationService } from '../authorization/authorization.service';
+@Component({
+  selector: 'app-common',
+  templateUrl: './common.component.html',
+  styleUrls: ['./common.component.scss']
+})
+export class CommonComponent implements OnInit {
+
+  ngOnInit(){
+    AOS.init(
+      {
+        duration: 600,
+        delay: 50,
+        once: true
+      }
+    );
   }
-  sidenavContents : any = [
+  title = 'web-self-service-application';
+  mobileQuery: MediaQueryList;
+
+
+   sidenavContents : any = [
     {
       title:"DASHBOARD",
       icon:"home",
@@ -120,22 +120,17 @@ export class AppComponent implements OnInit{
     
     
   ]
-  ngOnInit(){
-   
-    AOS.init(
-      {
-        duration: 600,
-        delay: 50,
-        once: true
-      }
-    );
-  }
-  title = 'web-self-service-application';
-  mobileQuery: MediaQueryList;
-
-
-   
   
+  private _mobileQueryListener: () => void;
+
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
+    private authorizationService : AuthorizationService,
+    private router : Router) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+    
+  }
   onNotificationComponent(){
     this.router.navigate(['notifications']);
   }
@@ -150,4 +145,5 @@ export class AppComponent implements OnInit{
     this.authorizationService.userStatus = false;
     this.router.navigate(['/login']);
   }
+
 }

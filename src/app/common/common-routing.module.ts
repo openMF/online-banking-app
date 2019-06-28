@@ -1,34 +1,33 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
-import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.component';
-import { RadarChartComponent } from './charts/radar-chart/radar-chart.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AccountsComponent } from './accounts/accounts.component';
-import { RecentTransactionsComponent } from './recent-transactions/recent-transactions.component';
-import { ChargesComponent } from './charges/charges.component';
-import { TransfersComponent } from './transfers/transfers.component';
-import { ThirdPartyTransfersComponent } from './third-party-transfers/third-party-transfers.component';
-import { BeneficiariesComponent } from './beneficiaries/beneficiaries.component';
-import { ReportsComponent } from './reports/reports.component';
-import { LoanComponent } from './apply/loan/loan.component';
+import { LoginComponent } from '../authentication/login/login.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { AuthGuardGuard } from '../authorization/auth-guard.guard';
+import { BarChartComponent } from '../charts/bar-chart/bar-chart.component';
+import { DoughnutChartComponent } from '../charts/doughnut-chart/doughnut-chart.component';
+import { RadarChartComponent } from '../charts/radar-chart/radar-chart.component';
+import { AccountsComponent } from '../accounts/accounts.component';
+import { AccountDetailsComponent } from '../accounts/account-details/account-details.component';
+import { RecentTransactionsComponent } from '../recent-transactions/recent-transactions.component';
+import { ChargesComponent } from '../charges/charges.component';
+import { TransfersComponent } from '../transfers/transfers.component';
+import { ThirdPartyTransfersComponent } from '../third-party-transfers/third-party-transfers.component';
+import { BeneficiariesComponent } from '../beneficiaries/beneficiaries.component';
+import { ReportsComponent } from '../reports/reports.component';
+import { LoanComponent } from '../apply/loan/loan.component';
+import { SavingComponent } from '../apply/saving/savings.component';
+import { ShareComponent } from '../apply/share/shares.component';
+import { ProfileComponent } from '../profile/profile.component';
+import { SurveysComponent } from '../surveys/surveys.component';
+import { NotificationsComponent } from '../notifications/notifications.component';
+import { AboutUsComponent } from '../about-us/about-us.component';
+import { PocketComponent } from '../pocket/pocket.component';
+import { ChatsComponent } from '../chats/chats.component';
+import { HelpComponent } from '../help/help.component';
+import { ForgotPasswordComponent } from '../authentication/forgot-password/forgot-password.component';
+import { SignUpComponent } from '../authentication/sign-up/sign-up.component';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 
-import { AboutUsComponent } from './about-us/about-us.component';
-import { HelpComponent } from './help/help.component';
-import { LoginComponent } from './authentication/login/login.component';
-import { AuthorizationService } from './authorization/authorization.service';
-import { AuthGuardGuard } from './authorization/auth-guard.guard';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
-import { SignUpComponent } from './authentication/sign-up/sign-up.component';
-import { AccountDetailsComponent } from './accounts/account-details/account-details.component';
-import { ProfileComponent } from './profile/profile.component';
-import { SurveysComponent } from './surveys/surveys.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { SavingComponent } from './apply/saving/savings.component';
-import { ShareComponent } from './apply/share/shares.component';
-import { PocketComponent } from './pocket/pocket.component';
-import { ChatsComponent } from './chats/chats.component';
 const routes: Routes = [
   {path: '',component : LoginComponent},
 
@@ -121,9 +120,9 @@ const routes: Routes = [
   component: HelpComponent, 
   canActivate: [AuthGuardGuard]},
 
-  // {path: 'login',                  
-  // component: LoginComponent,
-  // },
+  {path: 'login',                  
+  component: LoginComponent,
+  },
 
   {path: 'forgot-password',                  
   component: ForgotPasswordComponent,
@@ -144,4 +143,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class CommonRoutingModule { }

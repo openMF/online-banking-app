@@ -41,6 +41,10 @@ import { PocketComponent } from './pocket/pocket.component';
 import { ReviewTransfersComponent } from './transfers/review-transfers/review-transfers.component';
 import { ReviewThirdPartyTransfersComponent } from './third-party-transfers/review-transfers/review-transfers.component';
 import { HelpComponent } from './help/help.component';
+import { ChatsComponent } from './chats/chats.component';
+import { CommonComponent } from './common/common.component';
+import { CommonRoutingModule } from './common/common-routing.module';
+import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
@@ -76,7 +80,9 @@ import { HelpComponent } from './help/help.component';
     NotificationsComponent,
     PocketComponent,
     ReviewTransfersComponent,
-    ReviewThirdPartyTransfersComponent
+    ReviewThirdPartyTransfersComponent,
+    ChatsComponent,
+    CommonComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -89,7 +95,7 @@ import { HelpComponent } from './help/help.component';
     ReactiveFormsModule,
     ScrollingModule
   ],
-  providers: [AuthorizationService],
+  providers: [AuthorizationService,AppService],
   bootstrap: [AppComponent],
   entryComponents : [SignUpComponent,VerificationComponent]
 })
