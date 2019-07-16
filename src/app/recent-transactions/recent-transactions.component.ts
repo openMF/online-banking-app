@@ -47,7 +47,7 @@ function createNewUser(id: number): UserData {
 
   return {
     id: id.toString(),
-    name: name,
+    name,
     progress: Math.round(Math.random() * 100).toString(),
     color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
   };

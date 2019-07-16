@@ -32,7 +32,6 @@ import { ToolbarItemDirective } from './directives/toolbar-item.directive';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AccountDetailsComponent } from './accounts/account-details/account-details.component';
 import { ProfileComponent } from './profile/profile.component';
-import { SurveysComponent } from './surveys/surveys.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SavingsComponent } from './accounts/savings/savings.component';
@@ -45,6 +44,7 @@ import { ChatsComponent } from './chats/chats.component';
 import { CommonComponent } from './common/common.component';
 import { CommonRoutingModule } from './common/common-routing.module';
 import { AppService } from './app.service';
+import { SurveysComponent, DialogOverviewExampleDialogComponent } from './surveys/surveys.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +82,8 @@ import { AppService } from './app.service';
     ReviewTransfersComponent,
     ReviewThirdPartyTransfersComponent,
     ChatsComponent,
-    CommonComponent
+    CommonComponent,
+    DialogOverviewExampleDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -95,8 +96,8 @@ import { AppService } from './app.service';
     ReactiveFormsModule,
     ScrollingModule
   ],
-  providers: [AuthorizationService,AppService],
+  providers: [AuthorizationService, AppService],
   bootstrap: [AppComponent],
-  entryComponents : [SignUpComponent,VerificationComponent]
+  entryComponents : [SignUpComponent, VerificationComponent, DialogOverviewExampleDialogComponent]
 })
 export class AppModule { }

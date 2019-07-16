@@ -1,40 +1,76 @@
 
-<mat-card>
-  <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button>
+<mat-card *ngIf="!inProcess">
+    <mat-form-field>
+        <mat-label>Favorite food</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button class="button-style" (click)="onTakeSurvey()" class="button-style" mat-raised-button color="primary">Take Survey</button>
+</mat-card>
+
+
+<mat-card *ngIf="!isReview && inProcess">
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <!-- <ng-template matStepLabel>Fill out your name</ng-template> -->
-        <mat-form-field>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
+    <mat-step [stepControl]="secondFormGroup" *ngFor="let question of questions">
+      <form>
         <!-- <ng-template matStepLabel>Fill out your address</ng-template> -->
-        <mat-form-field>
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
-        </mat-form-field>
+        <mat-card>Question {{question}}</mat-card>
+        <div class="form-inner">
+ 
+        <mat-radio-group aria-label="Select an option">
+            <mat-radio-button class="radio-style" value="1">Option 1</mat-radio-button>
+            <mat-radio-button class="radio-style" value="2">Option 2</mat-radio-button>
+          </mat-radio-group>
+
+                   
+        </div>
         <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <div class="row">
+            <div class="col-md-6">
+                <button class="button-style" mat-raised-button color="primary" matStepperPrevious>Back</button>
+
+            </div>
+            <div class="col-md-6">
+                <button class="button-style" mat-raised-button color="primary" matStepperNext>Next</button>
+
+              </div>
+              <div *ngIf="question==26" class="col-md-12" class="review-button">
+                  <button (click)="onReview()" class="button-style" mat-raised-button color="accent">Review</button>
+    
+                </div>    
+          </div>
         </div>
       </form>
-    </mat-step>
-    <mat-step>
-      <!-- <ng-template matStepLabel>Done</ng-template> -->
-      You are now done.
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-      </div>
     </mat-step>
   </mat-horizontal-stepper>
   
+</mat-card>
+
+
+
+<mat-card *ngIf="isReview">
+  <div *ngFor="let question of questions">
+
+  <mat-card>
+    <h3>Question {{question}}</h3>
+  </mat-card>
+
+  <div class="answer-style">
+    Answer {{question}}
+  </div>
+      
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <button (click)="onEdit()" class="button-style" mat-raised-button color="primary">Edit</button>
+
+    </div>
+    <div class="col-md-6">
+        <button (click)="onSubmit()" class="button-style" mat-raised-button color="primary">Submit</button>
+
+      </div> 
+  </div>
 </mat-card>

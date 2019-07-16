@@ -15,51 +15,48 @@ export interface DialogData {
 })
 export class LoginComponent implements OnInit {
 
-  username : string;
-  password : string;
+  username: string;
+  password: string;
   animal: string;
   name: string;
 
-  selected = "English (Default)"
-  
-  constructor
-  ( private router : Router,
-    private authService : AuthorizationService,
-    private snackBar: MatSnackBar,
-    public dialog: MatDialog,
-    private appService : AppService
-  ) 
-  { }
+  selected = 'English (Default)';
+
+  constructor( private router: Router,
+  private authService: AuthorizationService,
+  private snackBar: MatSnackBar,
+  public dialog: MatDialog,
+  private appService: AppService
+  ) { }
 
   ngOnInit() {
   }
-  login(){
-    console.log(this.username + this.password)
-    this.authService.login(this.username,this.password);
+  login() {
+    console.log(this.username + this.password);
+    this.authService.login(this.username, this.password);
     console.log(this.authService.userStatus);
-    if(this.authService.userStatus == true){
+    if (this.authService.userStatus == true) {
       this.appService.emitConfig(true);
       this.router.navigate(['/dashboard']);
-    }
-    else{
+    } else {
       this.appService.emitConfig(false);
-      this.openSnackBar("Invalid Credentials","close")
+      this.openSnackBar('Invalid Credentials', 'close');
       this.router.navigate(['/login']);
     }
   }
 
 
-  openSnackBar(message,action) {
+  openSnackBar(message, action) {
     this.snackBar.open(message, action, {
       duration: 2000,
     });
   }
 
-  signup(){
-    this.openDialog()
+  signup() {
+    this.openDialog();
   }
   openDialog(): void {
-    console.log("Reached@!!!!")
+    console.log('Reached@!!!!');
     const dialogRef = this.dialog.open(SignUpComponent, {
       width: '500px',
       data: {name: this.name, animal: this.animal}

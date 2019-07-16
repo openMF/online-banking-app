@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>Thanks for submitting your survey!</p>
+  <p>It would prove to be very beneficial in the growth of our services</p>
+  <p>Thank you!</p>
+  <p color="green">You will be redirected to the survey dashboard in {{time}} seconds</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div>

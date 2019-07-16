@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 export class AppService {
   public configObservable = new Subject<boolean>();
 
-  emitConfig(userStatus : boolean) {
+  emitConfig(userStatus: boolean) {
     this.configObservable.next(userStatus);
   }
   constructor() { }

@@ -30,118 +30,61 @@ import { ShareComponent } from './apply/share/shares.component';
 import { PocketComponent } from './pocket/pocket.component';
 import { ChatsComponent } from './chats/chats.component';
 const routes: Routes = [
-  {path: '',component : LoginComponent},
+  {path: '', component : LoginComponent},
+  {path: 'dashboard', component : DashboardComponent},
+  {path: 'bar-chart', component: BarChartComponent,   canActivate: [AuthGuardGuard]},
 
-  {path: 'dashboard',             
-  component : DashboardComponent,
-  canActivate: [AuthGuardGuard]},
+  {path: 'doughnut-chart', component: DoughnutChartComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'bar-chart',
-  component: BarChartComponent,
-  canActivate: [AuthGuardGuard]},
-  
-  {path: 'doughnut-chart',
-  component: DoughnutChartComponent,
-  canActivate: [AuthGuardGuard]},
+  {path: 'radar-chart', component: RadarChartComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'radar-chart',
-  component: RadarChartComponent,
-  canActivate: [AuthGuardGuard]},
+  {path: 'accounts', component: AccountsComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'accounts',              
-  component: AccountsComponent, 
-  canActivate: [AuthGuardGuard]},
-
-  {path: 'account-details',              
-  component: AccountDetailsComponent, 
-  canActivate: [AuthGuardGuard]
+  {path: 'account-details', component: AccountDetailsComponent, canActivate: [AuthGuardGuard]
   },
 
-  {path: 'recent-transactions',   
-  component: RecentTransactionsComponent, 
-  canActivate: [AuthGuardGuard]},
+  {path: 'recent-transactions', component: RecentTransactionsComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'charges',               
-  component: ChargesComponent, 
-  canActivate: [AuthGuardGuard]},
+  {path: 'charges', component: ChargesComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'transfers',             
-  component: TransfersComponent, 
-  canActivate: [AuthGuardGuard]},
+  {path: 'transfers', component: TransfersComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'third-party-transfers', 
-  component: ThirdPartyTransfersComponent, 
-  canActivate: [AuthGuardGuard]},
+  {path: 'third-party-transfers', component: ThirdPartyTransfersComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'beneficiaries',         
-  component: BeneficiariesComponent,
-   canActivate: [AuthGuardGuard]},
+  {path: 'beneficiaries', component: BeneficiariesComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'reports',               
-  component: ReportsComponent, 
-  canActivate: [AuthGuardGuard]},
+  {path: 'reports', component: ReportsComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'apply/loan',            
-  component: LoanComponent, 
-  canActivate: [AuthGuardGuard]},
+  {path: 'apply/loan', component: LoanComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'apply/savings',         
-  component: SavingComponent, 
-  canActivate: [AuthGuardGuard]},
-  
-  {path: 'apply/shares',          
-  component: ShareComponent, 
-  canActivate: [AuthGuardGuard]},
+  {path: 'apply/savings', component: SavingComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'profile',              
-  component: ProfileComponent,
-  canActivate: [AuthGuardGuard]},
+  {path: 'apply/shares', component: ShareComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'survey',              
-  component: SurveysComponent,
-  canActivate: [AuthGuardGuard]},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'notifications',              
-  component: NotificationsComponent,
-  canActivate: [AuthGuardGuard]},
+  {path: 'survey', component: SurveysComponent},
 
-  {path: 'about-us',              
-  component: AboutUsComponent,
-  canActivate: [AuthGuardGuard]},
+  {path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'pocket',              
-  component: PocketComponent,
-  canActivate: [AuthGuardGuard]},
+  {path: 'about-us', component: AboutUsComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'chats',              
-  component: ChatsComponent,
-  canActivate: [AuthGuardGuard]},
+  {path: 'pocket', component: PocketComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'help',                  
-  component: HelpComponent, 
-  canActivate: [AuthGuardGuard]},
+  {path: 'chats', component: ChatsComponent, canActivate: [AuthGuardGuard]},
 
-  // {path: 'login',                  
-  // component: LoginComponent,
-  // },
+  {path: 'help', component: HelpComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'forgot-password',                  
-  component: ForgotPasswordComponent,
-  },
+  {path: 'forgot-password', component: ForgotPasswordComponent},
 
-  {path: 'sign-up',                  
-  component: SignUpComponent,
-  },
+  {path: 'sign-up', component: SignUpComponent},
 
-  {path: 'pagenotfound',
-  component : PageNotFoundComponent
-  },
+  {path: 'pagenotfound', component : PageNotFoundComponent},
 
   {path: '**', redirectTo : 'pagenotfound'}
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

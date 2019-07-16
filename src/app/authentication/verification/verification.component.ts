@@ -8,8 +8,8 @@ import { DialogData } from '../sign-up/sign-up.component';
   styleUrls: ['./verification.component.scss']
 })
 export class VerificationComponent implements OnInit {
-  username : string;
-  password : string;
+  username: string;
+  password: string;
   constructor(
     public dialogRef: MatDialogRef<VerificationComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
@@ -20,8 +20,8 @@ export class VerificationComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSignUp(){
+  onSignUp() {
 
   }
-  
+
 }

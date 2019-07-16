@@ -12,8 +12,8 @@ export interface DialogData {
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  username : string;
-  password : string;
+  username: string;
+  password: string;
   animal: string;
   name: string;
   constructor(
@@ -24,7 +24,7 @@ export class SignUpComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  onSignUp(){
+  onSignUp() {
     this.onNoClick();
     this.openDialog();
 

@@ -10,118 +10,120 @@ import { AppService } from './app.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-  private _mobileQueryListener: () => void;
-  isLoggedIn = false;
+export class AppComponent implements OnInit {
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
-    private authorizationService : AuthorizationService,
-    private router : Router,
-    private appService : AppService) {
+              private authorizationService: AuthorizationService,
+              private router: Router,
+              private appService: AppService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.appService.configObservable.subscribe(userstatus => {
       this.isLoggedIn = userstatus;
-    })
+    });
   }
-  sidenavContents : any = [
+  private _mobileQueryListener: () => void;
+  isLoggedIn = false;
+  sidenavContents: any = [
     {
-      title:"DASHBOARD",
-      icon:"home",
-      color:"pink",
+      title: 'DASHBOARD',
+      icon: 'home',
+      color: 'pink',
       link: 'dashboard'
     },
     {
-      title:"ACCOUNTS",
-      icon:"account_balance",
+      title: 'ACCOUNTS',
+      icon: 'account_balance',
       link: 'accounts'
     },
     {
-      title:"RECENT TRANSACTIONS",
-      icon:"monetization_on",
+      title: 'RECENT TRANSACTIONS',
+      icon: 'monetization_on',
       link: 'recent-transactions'
     },
     {
-      title:"CHARGES",
-      icon:"monetization_on",
+      title: 'CHARGES',
+      icon: 'monetization_on',
       link: 'charges'
     },
     {
-      title:"TRANSFERS",
-      icon:"monetization_on",
+      title: 'TRANSFERS',
+      icon: 'monetization_on',
       link: 'transfers'
     },
     {
-      title:"THIRD PARTY TRANSFERS",
-      icon:"monetization_on",
+      title: 'THIRD PARTY TRANSFERS',
+      icon: 'monetization_on',
       link: 'third-party-transfers'
     },
     {
-      title:"BENEFICIARIES",
-      icon:"supervised_user_circle",
+      title: 'BENEFICIARIES',
+      icon: 'supervised_user_circle',
       link: 'beneficiaries'
     },
     {
-      title:"REPORTS",
-      icon:"assessment",
+      title: 'REPORTS',
+      icon: 'assessment',
       link: 'reports'
     },
     {
-      title:"APPLY FOR LOAN",
-      icon:"assignment_ind",
+      title: 'APPLY FOR LOAN',
+      icon: 'assignment_ind',
       link: 'apply/loan'
     },
     {
-      title:"APPLY FOR SAVINGS",
-      icon:"assignment_ind",
+      title: 'APPLY FOR SAVINGS',
+      icon: 'assignment_ind',
       link: 'apply/savings'
     },
     {
-      title:"APPLY FOR SHARES",
-      icon:"assignment_ind",
+      title: 'APPLY FOR SHARES',
+      icon: 'assignment_ind',
       link: 'apply/shares'
     },
     {
-      title:"PROFILE",
-      icon:"person",
+      title: 'PROFILE',
+      icon: 'person',
       link: 'profile'
     },
     {
-      title:"SURVEY",
-      icon:"format_list_bulleted",
+      title: 'SURVEY',
+      icon: 'format_list_bulleted',
       link: 'survey'
     },
     {
-      title:"ABOUT US",
-      icon:"info",
+      title: 'ABOUT US',
+      icon: 'info',
       link: 'about-us'
     },
     {
-      title:"HELP",
-      icon:"help_outline",
-      link:'help'
+      title: 'HELP',
+      icon: 'help_outline',
+      link: 'help'
     },
     {
-      title:"login",
-      icon:"person",
-      link:'login'
+      title: 'login',
+      icon: 'person',
+      link: 'login'
     },
     {
-      title:"Notifications",
-      icon:"notifications",
-      link:"notifications"
+      title: 'Notifications',
+      icon: 'notifications',
+      link: 'notifications'
     },
     {
-      title:"Pocket",
-      icon:"work",
-      link:"pocket"
+      title: 'Pocket',
+      icon: 'work',
+      link: 'pocket'
     }
-    
-    
-  ]
-  ngOnInit(){
-   
+
+
+  ];
+  title = 'web-self-service-application';
+  mobileQuery: MediaQueryList;
+  ngOnInit() {
+
     AOS.init(
       {
         duration: 600,
@@ -130,23 +132,21 @@ export class AppComponent implements OnInit{
       }
     );
   }
-  title = 'web-self-service-application';
-  mobileQuery: MediaQueryList;
 
 
-   
-  
-  onNotificationComponent(){
+
+
+  onNotificationComponent() {
     this.router.navigate(['notifications']);
   }
-  onProfileComponent(){
+  onProfileComponent() {
     this.router.navigate(['profile']);
   }
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-  logout(){
+  logout() {
     this.authorizationService.userStatus = false;
     this.router.navigate(['/login']);
   }

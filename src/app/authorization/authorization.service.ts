@@ -8,15 +8,14 @@ import { Observable } from 'rxjs';
 export class AuthorizationService {
   userStatus = false;
   constructor() { }
-  login(username : string, password : string){
-    if(username==='selfservice' && password==='mifos'){
+  login(username: string, password: string) {
+    if (username === 'selfservice' && password === 'mifos') {
       this.userStatus = true;
-    }
-    else{
+    } else {
       this.userStatus = false;
     }
-    
+
   }
 
- 
+
 }
