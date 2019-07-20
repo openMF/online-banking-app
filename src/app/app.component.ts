@@ -10,7 +10,7 @@ import { AppService } from './app.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy{
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
               private authorizationService: AuthorizationService,
@@ -18,11 +18,13 @@ export class AppComponent implements OnInit {
               private appService: AppService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    // tslint:disable-next-line: deprecation
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.appService.configObservable.subscribe(userstatus => {
       this.isLoggedIn = userstatus;
     });
   }
+  // tslint:disable-next-line: variable-name
   private _mobileQueryListener: () => void;
   isLoggedIn = false;
   sidenavContents: any = [
@@ -143,6 +145,7 @@ export class AppComponent implements OnInit {
     this.router.navigate(['profile']);
   }
   ngOnDestroy(): void {
+    // tslint:disable-next-line: deprecation
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 

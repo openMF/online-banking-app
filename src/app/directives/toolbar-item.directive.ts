@@ -7,6 +7,7 @@ export class ToolbarItemDirective {
 
 
   constructor(private el: ElementRef,
+              // tslint:disable-next-line: deprecation
               private renderer: Renderer) {
                 // renderer.setElementStyle(el.nativeElement, 'backgroundColor', 'red');
 

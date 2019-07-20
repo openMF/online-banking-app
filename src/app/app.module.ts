@@ -41,10 +41,9 @@ import { ReviewTransfersComponent } from './transfers/review-transfers/review-tr
 import { ReviewThirdPartyTransfersComponent } from './third-party-transfers/review-transfers/review-transfers.component';
 import { HelpComponent } from './help/help.component';
 import { ChatsComponent } from './chats/chats.component';
-import { CommonComponent } from './common/common.component';
-import { CommonRoutingModule } from './common/common-routing.module';
 import { AppService } from './app.service';
 import { SurveysComponent, DialogOverviewExampleDialogComponent } from './surveys/surveys.component';
+import { SurveyService } from './services/survey.service';
 
 @NgModule({
   declarations: [
@@ -82,7 +81,6 @@ import { SurveysComponent, DialogOverviewExampleDialogComponent } from './survey
     ReviewTransfersComponent,
     ReviewThirdPartyTransfersComponent,
     ChatsComponent,
-    CommonComponent,
     DialogOverviewExampleDialogComponent
   ],
   imports: [
@@ -96,7 +94,7 @@ import { SurveysComponent, DialogOverviewExampleDialogComponent } from './survey
     ReactiveFormsModule,
     ScrollingModule
   ],
-  providers: [AuthorizationService, AppService],
+  providers: [AuthorizationService, AppService, SurveyService],
   bootstrap: [AppComponent],
   entryComponents : [SignUpComponent, VerificationComponent, DialogOverviewExampleDialogComponent]
 })

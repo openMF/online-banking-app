@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   selected = 'English (Default)';
 
-  constructor( private router: Router,
+  constructor
+( private router: Router,
   private authService: AuthorizationService,
   private snackBar: MatSnackBar,
   public dialog: MatDialog,
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  openSnackBar(message, action) {
+  openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 2000,
     });

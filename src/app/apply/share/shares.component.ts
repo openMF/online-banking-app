@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'apply-app-shares',
+  selector: 'app-shares',
   templateUrl: './shares.component.html',
   styleUrls: ['./shares.component.scss']
 })

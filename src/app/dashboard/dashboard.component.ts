@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterContentInit {
   fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
   items = [1, 2, 3, 4];
   items2 = [1, 2, 3];

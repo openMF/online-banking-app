@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
 @Component({
@@ -6,7 +6,7 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
   templateUrl: './savings.component.html',
   styleUrls: ['./savings.component.scss']
 })
-export class SavingsComponent {
+export class SavingsComponent implements AfterViewInit {
   displayedColumns = ['id', 'name', 'progress', 'color'];
   dataSource: MatTableDataSource<UserData>;
 
@@ -41,13 +41,16 @@ export class SavingsComponent {
 
 function createNewUser(id: number): UserData {
   const name =
+      // tslint:disable-next-line: no-use-before-declare
       NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
+      // tslint:disable-next-line: no-use-before-declare
       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
 
   return {
     id: id.toString(),
     name,
     progress: Math.round(Math.random() * 100).toString(),
+    // tslint:disable-next-line: no-use-before-declare
     color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
   };
 }

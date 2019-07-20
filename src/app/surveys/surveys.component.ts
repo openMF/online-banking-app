@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { SurveyService } from '../services/survey.service';
 
 export interface DialogData {
   animal: string;
@@ -16,10 +17,13 @@ export class DialogOverviewExampleDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private router: Router) {
+    private router: Router,
+    private surveysService: SurveyService) {
     }
     ngOnInit(): void {
       this.onTimer();
+      console.log('here');
+      this.surveysService.fetchSurveys();
     }
   onNoClick(): void {
     this.dialogRef.close();
@@ -53,21 +57,23 @@ export class SurveysComponent implements OnInit {
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
+  // tslint:disable-next-line: variable-name
   constructor(private _formBuilder: FormBuilder,
               public dialog: MatDialog,
-              private router: Router) {}
+              private router: Router,
+              private surveysService: SurveyService) {}
 
   animal: string;
   name: string;
   isReview =  false;
   firstFormGroup: FormGroup;
   questions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26];
-
+  data: any;
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
-
+    this.surveysService.fetchSurveys();
   }
   onReview() {
     this.isReview = true;
@@ -92,7 +98,7 @@ export class SurveysComponent implements OnInit {
     });
   }
 
-  onTakeSurvey(){
+  onTakeSurvey() {
     this.inProcess = true;
   }
 }
