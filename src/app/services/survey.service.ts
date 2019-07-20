@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
-const headers = new HttpHeaders();
-headers.append('Authorization', 'Basic bWlmb3M6cGFzc3dvcmQ=');
-headers.append('Content-Type', 'application/json');
-headers.append('Fineract-Platform-TenantId', 'default');
-
-
+const headers = new HttpHeaders(
+  {'Content-Type': 'application/json',
+  Authorization: 'Basic bWlmb3M6cGFzc3dvcmQ=',
+  'Fineract-Platform-TenantId': 'default',
+}
+);
+const params = new HttpParams().set('username', 'mifos').set('password', 'PASSWORD')
 const httpOptions = {
  headers
 };
@@ -20,8 +21,8 @@ export class SurveyService {
 
   fetchSurveys() {
 
-    console.log(headers);
-    this.http.get<any[]>('https://demo.openmf.org/fineract-provider/api/v1/surveys'
+    console.log('Headers are :' + JSON.stringify(headers));
+    this.http.get<any[]>('https://mifos:PASSWORD@demo.openmf.org/fineract-provider/api/v1/surveys'
     , httpOptions)
     .subscribe(data => console.log(data));
 

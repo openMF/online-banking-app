@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-savings',
+  selector: 'app-apply-savings',
   templateUrl: './savings.component.html',
   styleUrls: ['./savings.component.scss']
 })
