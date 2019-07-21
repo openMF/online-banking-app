@@ -1,15 +1,52 @@
-
-<mat-card *ngIf="!inProcess">
-    <mat-form-field>
-        <mat-label>Favorite food</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let food of foods" [value]="food.value">
-            {{food.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button class="button-style" (click)="onTakeSurvey()" class="button-style" mat-raised-button color="primary">Take Survey</button>
+<mat-card *ngIf="!isReview && inProcess">
+    <mat-progress-bar mode="determinate" value="{{progress_value}}"></mat-progress-bar>
 </mat-card>
+
+
+<div *ngIf="!inProcess">
+    <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> Survey</th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Created by </th>
+          <td mat-cell *matCellDef="let element"> Mifos </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> 12/03/2019 </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Score </th>
+          <td mat-cell *matCellDef="let element"> 90 </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element"> 
+              
+                <button class="button-style" (click)="onTakeSurvey()" mat-raised-button color="primary">Take Survey</button>
+
+
+            </td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
 
 
 <mat-card *ngIf="!isReview && inProcess">
@@ -17,12 +54,14 @@
     <mat-step [stepControl]="secondFormGroup" *ngFor="let question of questions">
       <form>
         <!-- <ng-template matStepLabel>Fill out your address</ng-template> -->
-        <mat-card>Question {{question}}</mat-card>
+        <mat-card> <div class="question">Question : {{question}}</div>  </mat-card>
         <div class="form-inner">
  
         <mat-radio-group aria-label="Select an option">
-            <mat-radio-button class="radio-style" value="1">Option 1</mat-radio-button>
-            <mat-radio-button class="radio-style" value="2">Option 2</mat-radio-button>
+            <mat-radio-button class="radio-style answers" value="1" >One</mat-radio-button>
+            <mat-radio-button class="radio-style answers" value="2" >Two</mat-radio-button>
+            <mat-radio-button class="radio-style answers" value="2" >Three</mat-radio-button>
+            <mat-radio-button class="radio-style answers" value="2" >Four</mat-radio-button>
           </mat-radio-group>
 
                    
@@ -34,10 +73,10 @@
 
             </div>
             <div class="col-md-6">
-                <button class="button-style" mat-raised-button color="primary" matStepperNext>Next</button>
+                <button class="button-style" mat-raised-button color="primary" (click)="onNext()" matStepperNext>Next</button>
 
               </div>
-              <div *ngIf="question==26" class="col-md-12" class="review-button">
+              <div *ngIf="question==questionLength" class="col-md-12" class="review-button">
                   <button (click)="onReview()" class="button-style" mat-raised-button color="accent">Review</button>
     
                 </div>    

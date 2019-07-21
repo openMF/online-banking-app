@@ -2,7 +2,9 @@ mat-card{
     margin : 20px;
 }
 .button-style{
-width : 100%;
+    display: block;
+    margin:auto;
+width : 50%;
 }
 .radio-style{
     display: block;
@@ -10,6 +12,7 @@ width : 100%;
 .answer-style{
     color: green;
     margin-left: 25px;
+    font-size: 15px;
 }
 .review-button{
     width: 100%;
@@ -22,3 +25,14 @@ mat-form-field{
     width : 500px;
     margin : auto;
 }
+table {
+   
+    margin : auto;
+    width: 90%;
+  }
+  .question{
+      font-size: 20px;
+  }
+  .answers{
+      font-size: 15px;
+  }
