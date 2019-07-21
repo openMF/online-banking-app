@@ -73,7 +73,7 @@ const routes: Routes = [
 
   {path: 'chats', component: ChatsComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'help', component: HelpComponent, canActivate: [AuthGuardGuard]},
+  {path: 'help', component: HelpComponent},
 
   {path: 'forgot-password', component: ForgotPasswordComponent},
 
