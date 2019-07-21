@@ -32,7 +32,7 @@ import { ToolbarItemDirective } from './directives/toolbar-item.directive';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AccountDetailsComponent } from './accounts/account-details/account-details.component';
 import { ProfileComponent } from './profile/profile.component';
-import { NotificationsComponent } from './notifications/notifications.component';
+import { NotificationsComponent, NotificationsDialogComponent } from './notifications/notifications.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SavingsComponent } from './accounts/savings/savings.component';
 import { SharesComponent } from './accounts/shares/shares.component';
@@ -81,7 +81,8 @@ import { SurveyService } from './services/survey.service';
     ReviewTransfersComponent,
     ReviewThirdPartyTransfersComponent,
     ChatsComponent,
-    DialogOverviewExampleDialogComponent
+    DialogOverviewExampleDialogComponent,
+    NotificationsDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -96,6 +97,7 @@ import { SurveyService } from './services/survey.service';
   ],
   providers: [AuthorizationService, AppService, SurveyService],
   bootstrap: [AppComponent],
-  entryComponents : [SignUpComponent, VerificationComponent, DialogOverviewExampleDialogComponent]
+  entryComponents : [SignUpComponent, VerificationComponent, DialogOverviewExampleDialogComponent
+  , NotificationsDialogComponent]
 })
 export class AppModule { }

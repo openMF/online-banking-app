@@ -4,7 +4,7 @@ mat-card{
 .header{
     color: gray;
     font-weight: bold;
-    font-size: 15px;        
+    font-size: 25px;        
 }
 .delete{
     font-size : 15px;
@@ -13,4 +13,7 @@ mat-card{
 }
 .gotoright{
     float :  right;
+}
+#warning-message{
+    color:red;
 }

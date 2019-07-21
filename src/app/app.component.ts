@@ -26,7 +26,7 @@ export class AppComponent implements OnInit, OnDestroy{
   }
   // tslint:disable-next-line: variable-name
   private _mobileQueryListener: () => void;
-  isLoggedIn = false;
+  isLoggedIn = true;
   sidenavContents: any = [
     {
       title: 'DASHBOARD',

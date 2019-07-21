@@ -9,11 +9,11 @@
         <div class="col-md-6">
             
             <div>
-                <mat-list-item role="listitem"> {{item}} The app has been updates to v 3.0!</mat-list-item>
+                <mat-list-item role="listitem">{{item}} The app has been updated to v 3.0!   </mat-list-item>
             </div>
         </div>
         <div class="col-md-6">
-            <button class="delete gotoright"  (click)="deleteRecentNotification(i)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+            <button class="delete gotoright"  (click)="openDialog(i)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
                 <mat-icon>
                   delete
                 </mat-icon>

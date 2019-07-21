@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthorizationService {
-  userStatus = false;
+  userStatus = true;
   constructor() { }
   login(username: string, password: string) {
     if (username === 'selfservice' && password === 'mifos') {
       this.userStatus = true;
     } else {
-      this.userStatus = false;
+      this.userStatus = true;
     }
 
   }
