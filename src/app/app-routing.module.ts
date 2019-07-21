@@ -61,7 +61,7 @@ const routes: Routes = [
 
   {path: 'apply/shares', component: ShareComponent, canActivate: [AuthGuardGuard]},
 
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardGuard]},
+  {path: 'profile', component: ProfileComponent},
 
   {path: 'survey', component: SurveysComponent},
 

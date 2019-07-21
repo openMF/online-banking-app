@@ -31,7 +31,7 @@ import { ForgotPasswordComponent } from './authentication/forgot-password/forgot
 import { ToolbarItemDirective } from './directives/toolbar-item.directive';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AccountDetailsComponent } from './accounts/account-details/account-details.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent, ProfileDialogComponent } from './profile/profile.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SavingsComponent } from './accounts/savings/savings.component';
@@ -81,7 +81,8 @@ import { SurveyService } from './services/survey.service';
     ReviewTransfersComponent,
     ReviewThirdPartyTransfersComponent,
     ChatsComponent,
-    DialogOverviewExampleDialogComponent
+    DialogOverviewExampleDialogComponent,
+    ProfileDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -96,6 +97,11 @@ import { SurveyService } from './services/survey.service';
   ],
   providers: [AuthorizationService, AppService, SurveyService],
   bootstrap: [AppComponent],
-  entryComponents : [SignUpComponent, VerificationComponent, DialogOverviewExampleDialogComponent]
+  entryComponents : [
+    SignUpComponent,
+    VerificationComponent,
+    DialogOverviewExampleDialogComponent,
+    ProfileDialogComponent
+  ]
 })
 export class AppModule { }

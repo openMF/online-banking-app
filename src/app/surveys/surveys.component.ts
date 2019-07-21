@@ -53,9 +53,9 @@ export class SurveysComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   inProcess = false;
   foods: any[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
+    {value: 'steak-0', viewValue: 'Feedback Survey'},
+    {value: 'pizza-1', viewValue: 'UI Survey'},
+    {value: 'tacos-2', viewValue: 'Background Info Survey'}
   ];
   // tslint:disable-next-line: variable-name
   constructor(private _formBuilder: FormBuilder,
