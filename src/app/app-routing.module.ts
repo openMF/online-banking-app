@@ -65,7 +65,7 @@ const routes: Routes = [
 
   {path: 'survey', component: SurveysComponent},
 
-  {path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuardGuard]},
+  {path: 'notifications', component: NotificationsComponent},
 
   {path: 'about-us', component: AboutUsComponent, canActivate: [AuthGuardGuard]},
 

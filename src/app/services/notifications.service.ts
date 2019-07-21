@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 const headers = new HttpHeaders(
@@ -15,17 +14,16 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class SurveyService {
+export class NotificationsService {
 
   constructor(private http: HttpClient) { }
 
-  fetchSurveys() {
+  fetchNotifications() {
 
     console.log('Headers are :' + JSON.stringify(headers));
-    this.http.get<any[]>('https://demo.openmf.org/fineract-provider/api/v1/surveys'
+    this.http.get<any[]>('https://demo.openmf.org/fineract-provider/api/v1/notifications'
     , httpOptions)
     .subscribe(data => console.log(data));
 
   }
-
 }
