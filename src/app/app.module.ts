@@ -25,7 +25,6 @@ import { AuthorizationService } from './authorization/authorization.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
-import { ToolbarItemDirective } from './directives/toolbar-item.directive';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AccountDetailsComponent } from './accounts/account-details/account-details.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -63,7 +62,6 @@ import { SurveysComponent, DialogOverviewExampleDialogComponent } from './survey
     PageNotFoundComponent,
     ForgotPasswordComponent,
     SignUpComponent,
-    ToolbarItemDirective,
     VerificationComponent,
     AccountDetailsComponent,
     ProfileComponent,
