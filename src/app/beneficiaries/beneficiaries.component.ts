@@ -1,11 +1,11 @@
-import {Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-beneficiaries',
   templateUrl: './beneficiaries.component.html',
   styleUrls: ['./beneficiaries.component.scss']
 })
-export class BeneficiariesComponent {
+export class BeneficiariesComponent implements  AfterViewInit{
 
   displayedColumns = ['id', 'name', 'progress', 'color'];
   dataSource: MatTableDataSource<UserData>;

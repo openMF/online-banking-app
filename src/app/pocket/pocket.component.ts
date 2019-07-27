@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { UserData } from '../recent-transactions/recent-transactions.component';
 
@@ -7,7 +7,7 @@ import { UserData } from '../recent-transactions/recent-transactions.component';
   templateUrl: './pocket.component.html',
   styleUrls: ['./pocket.component.scss']
 })
-export class PocketComponent implements OnInit {
+export class PocketComponent implements OnInit, AfterViewInit {
 
   constructor() {
     // Create 100 users

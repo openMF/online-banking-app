@@ -10,20 +10,20 @@ import { AppService } from './app.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
               private authorizationService: AuthorizationService,
               private router: Router,
               private appService: AppService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+    this.mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this.mobileQueryListener);
     this.appService.configObservable.subscribe(userstatus => {
       this.isLoggedIn = userstatus;
     });
   }
-  private _mobileQueryListener: () => void;
+  private readonly mobileQueryListener: () => void;
   isLoggedIn = false;
   sidenavContents: any = [
     {
@@ -132,10 +132,6 @@ export class AppComponent implements OnInit {
       }
     );
   }
-
-
-
-
   onNotificationComponent() {
     this.router.navigate(['notifications']);
   }
@@ -143,11 +139,11 @@ export class AppComponent implements OnInit {
     this.router.navigate(['profile']);
   }
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    this.mobileQuery.removeListener(this.mobileQueryListener);
   }
 
   logout() {
     this.authorizationService.userStatus = false;
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login']).then();
   }
 }

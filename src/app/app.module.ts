@@ -5,9 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './MaterialModule/material.module';
 import { ChartsModule } from 'ng2-charts';
-import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
-import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.component';
-import { RadarChartComponent } from './charts/radar-chart/radar-chart.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { RecentTransactionsComponent } from './recent-transactions/recent-transactions.component';
 import { ChargesComponent } from './charges/charges.component';
@@ -40,18 +37,12 @@ import { PocketComponent } from './pocket/pocket.component';
 import { ReviewTransfersComponent } from './transfers/review-transfers/review-transfers.component';
 import { ReviewThirdPartyTransfersComponent } from './third-party-transfers/review-transfers/review-transfers.component';
 import { HelpComponent } from './help/help.component';
-import { ChatsComponent } from './chats/chats.component';
-import { CommonComponent } from './common/common.component';
-import { CommonRoutingModule } from './common/common-routing.module';
 import { AppService } from './app.service';
 import { SurveysComponent, DialogOverviewExampleDialogComponent } from './surveys/surveys.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BarChartComponent,
-    DoughnutChartComponent,
-    RadarChartComponent,
     AccountsComponent,
     RecentTransactionsComponent,
     ChargesComponent,
@@ -81,8 +72,6 @@ import { SurveysComponent, DialogOverviewExampleDialogComponent } from './survey
     PocketComponent,
     ReviewTransfersComponent,
     ReviewThirdPartyTransfersComponent,
-    ChatsComponent,
-    CommonComponent,
     DialogOverviewExampleDialogComponent
   ],
   imports: [

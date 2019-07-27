@@ -25,7 +25,6 @@ export class DialogOverviewExampleDialogComponent implements OnInit {
     this.dialogRef.close();
   }
   onTimer() {
-    console.log('reached ontimer');
     setInterval(
       () => {
         console.log(this.time);
@@ -53,7 +52,7 @@ export class SurveysComponent implements OnInit {
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
-  constructor(private _formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
               public dialog: MatDialog,
               private router: Router) {}
 
@@ -64,7 +63,7 @@ export class SurveysComponent implements OnInit {
   questions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26];
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
+    this.firstFormGroup = this.formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
 

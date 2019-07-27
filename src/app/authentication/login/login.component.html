@@ -14,17 +14,17 @@
                           Self Service
                       </div>
                       <div class="cover-content">
-                          Self Service is designed by the Mifos Initiative - 
+                          Self Service is designed by the Mifos Initiative -
                           a global community that aims to speed-up the elimination of poverty by enabling organizations
                           to more effectively and efficiently deliver responsible financial services to the world’s poor and unbanked.
                       </div>
                     </div>
               </div>
-     
+
     </div>
     <div class="col-md-4">
-        
-         
+
+
         <form  #loginForm="ngForm" >
               <mat-form-field class="language-container">
                   <mat-select placeholder="Translate" [(ngModel)]="selected">
@@ -44,8 +44,8 @@
                   <button type="submit" [disabled]="!loginForm.valid"  mat-raised-button id="login-color" (click)="login()">Login</button>
         </form>
         <button mat-raised-button>Forgot Password ?</button>
-        <button mat-raised-button color="accent" (click)="signup()">New User ? Sign Up</button>
-         
+        <button mat-raised-button color="accent" (click)="onSignUp()">New User ? Sign Up</button>
+
     </div>
     <!-- <div class="login-container" flex flex-gt-md="30">
         <div class="md-padding translate-container" layout="row" layout-align="end">

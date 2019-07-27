@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   selected = 'English (Default)';
 
-  constructor( private router: Router,
+  constructor
+( private router: Router,
   private authService: AuthorizationService,
   private snackBar: MatSnackBar,
   public dialog: MatDialog,
@@ -35,13 +36,13 @@ export class LoginComponent implements OnInit {
     console.log(this.username + this.password);
     this.authService.login(this.username, this.password);
     console.log(this.authService.userStatus);
-    if (this.authService.userStatus == true) {
+    if (this.authService.userStatus === true) {
       this.appService.emitConfig(true);
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashboard']).then();
     } else {
       this.appService.emitConfig(false);
       this.openSnackBar('Invalid Credentials', 'close');
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login']).then();
     }
   }
 
@@ -52,7 +53,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  signup() {
+  onSignUp() {
     this.openDialog();
   }
   openDialog(): void {

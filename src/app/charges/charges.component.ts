@@ -1,12 +1,12 @@
 
-import {Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-charges',
   templateUrl: './charges.component.html',
   styleUrls: ['./charges.component.scss']
 })
-export class ChargesComponent {
+export class ChargesComponent implements  AfterViewInit{
 
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
 @Component({
@@ -6,7 +6,7 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
   templateUrl: './savings.component.html',
   styleUrls: ['./savings.component.scss']
 })
-export class SavingsComponent {
+export class SavingsComponent implements  AfterViewInit{
   displayedColumns = ['id', 'name', 'progress', 'color'];
   dataSource: MatTableDataSource<UserData>;
 

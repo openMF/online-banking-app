@@ -1,12 +1,12 @@
 
-import {Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-recent-transactions',
   templateUrl: './recent-transactions.component.html',
   styleUrls: ['./recent-transactions.component.scss']
 })
-export class RecentTransactionsComponent {
+export class RecentTransactionsComponent implements AfterViewInit{
 
   displayedColumns = ['id', 'name', 'progress', 'color'];
   dataSource: MatTableDataSource<UserData>;
