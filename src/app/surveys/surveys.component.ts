@@ -91,7 +91,7 @@ export class SurveysComponent implements OnInit {
     });
   }
 
-  onTakeSurvey(){
+  onTakeSurvey() {
     this.inProcess = true;
   }
 }
