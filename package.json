@@ -33,6 +33,7 @@
     "nebular-icons": "^1.1.0",
     "ng2-charts": "^2.2.3",
     "rxjs": "~6.3.3",
+    "travis-cli": "^1.0.9",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
