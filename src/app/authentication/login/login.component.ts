@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthorizationService } from 'src/app/authorization/authorization.service';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { SignUpComponent } from '../sign-up/sign-up.component';
@@ -22,20 +22,17 @@ export class LoginComponent implements OnInit {
 
   selected = 'English (Default)';
 
-  constructor
-( private router: Router,
-  private authService: AuthorizationService,
-  private snackBar: MatSnackBar,
-  public dialog: MatDialog,
-  private appService: AppService
-  ) { }
+  constructor(private router: Router,
+              private authService: AuthorizationService,
+              private snackBar: MatSnackBar,
+              public dialog: MatDialog,
+              private appService: AppService
+  ) {}
 
   ngOnInit() {
   }
   login() {
-    console.log(this.username + this.password);
     this.authService.login(this.username, this.password);
-    console.log(this.authService.userStatus);
     if (this.authService.userStatus === true) {
       this.appService.emitConfig(true);
       this.router.navigate(['/dashboard']).then();
@@ -57,14 +54,12 @@ export class LoginComponent implements OnInit {
     this.openDialog();
   }
   openDialog(): void {
-    console.log('Reached@!!!!');
     const dialogRef = this.dialog.open(SignUpComponent, {
       width: '500px',
       data: {name: this.name, animal: this.animal}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.animal = result;
     });
   }
