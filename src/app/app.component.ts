@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ChangeDetectorRef, OnDestroy} from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import * as AOS from 'aos';
 import { AuthorizationService } from './authorization/authorization.service';
 import { Router } from '@angular/router';
 import { AppService } from './app.service';
@@ -122,16 +121,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ];
   title = 'web-self-service-application';
   mobileQuery: MediaQueryList;
-  ngOnInit() {
-
-    AOS.init(
-      {
-        duration: 600,
-        delay: 50,
-        once: true
-      }
-    );
-  }
+  ngOnInit() {}
   onNotificationComponent() {
     this.router.navigate(['notifications']);
   }

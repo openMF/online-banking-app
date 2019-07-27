@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './MaterialModule/material.module';
-import { ChartsModule } from 'ng2-charts';
 import { AccountsComponent } from './accounts/accounts.component';
 import { RecentTransactionsComponent } from './recent-transactions/recent-transactions.component';
 import { ChargesComponent } from './charges/charges.component';
@@ -77,7 +76,6 @@ import { SurveysComponent, DialogOverviewExampleDialogComponent } from './survey
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
-    ChartsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
