@@ -44,7 +44,6 @@ import { ChatsComponent } from './chats/chats.component';
 import { AppService } from './app.service';
 import { SurveysComponent, DialogOverviewExampleDialogComponent } from './surveys/surveys.component';
 import { SurveyService } from './services/survey.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
