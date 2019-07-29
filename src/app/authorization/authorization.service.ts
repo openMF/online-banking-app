@@ -6,7 +6,7 @@ export class AuthorizationService {
   userStatus = false;
   constructor() { }
   login(username: string, password: string) {
-    if (username === 'self-service' && password === 'password') {
+    if (username === 'mifos' && password === 'mifos') {
       this.userStatus = true;
     } else {
       this.userStatus = false;

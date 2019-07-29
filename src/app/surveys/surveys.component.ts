@@ -1,7 +1,27 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Router } from '@angular/router';
+
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
+  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
+  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
+  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
+  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+];
 
 export interface DialogData {
   animal: string;
@@ -11,20 +31,22 @@ export interface DialogData {
   selector: 'app-dialog-overview-example-dialog',
   templateUrl: 'dialog-overview-example-dialog.html',
 })
-export class DialogOverviewExampleDialogComponent implements OnInit {
+export class SurveysDialogComponent implements OnInit {
   time = 10;
   constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>,
+    public dialogRef: MatDialogRef<SurveysDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private router: Router) {
+    private router: Router
+   ) {
     }
     ngOnInit(): void {
-      this.onTimer();
+      console.log('here');
     }
   onNoClick(): void {
     this.dialogRef.close();
   }
   onTimer() {
+    console.log('reached ontimer');
     setInterval(
       () => {
         console.log(this.time);
@@ -45,29 +67,32 @@ this.router.navigate(['/survey']));
   styleUrls: ['./surveys.component.scss']
 })
 export class SurveysComponent implements OnInit {
-  // tslint:disable-next-line: variable-name
+
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'action'];
+  dataSource = ELEMENT_DATA;
   inProcess = false;
-  foods: any[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
+  surveys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   constructor(private formBuilder: FormBuilder,
-              public dialog: MatDialog,
-              private router: Router) {}
+              public dialog: MatDialog
+             ) {}
 
   animal: string;
   name: string;
   isReview =  false;
   firstFormGroup: FormGroup;
-  questions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26];
-
+  questions = [1, 2, 3, 4, 5, 6, 7, 8];
+  progressValue = 100 / this.questions.length;
+  increment = 100 / this.questions.length;
+  questionLength = this.questions.length;
+  data: any;
   ngOnInit() {
     this.firstFormGroup = this.formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
 
   }
+
   onReview() {
     this.isReview = true;
   }
@@ -79,18 +104,20 @@ export class SurveysComponent implements OnInit {
 
   }
  openDialog(): void {
-  const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
+  const dialogRef = this.dialog.open(SurveysDialogComponent, {
       width: '500px',
       data: {name: this.name, animal: this.animal}
     });
 
   dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.animal = result;
     });
   }
 
   onTakeSurvey() {
     this.inProcess = true;
+  }
+  onNext() {
+    this.progressValue = this.increment + this.progressValue;
   }
 }

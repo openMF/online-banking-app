@@ -36,7 +36,7 @@ import { ReviewTransfersComponent } from './transfers/review-transfers/review-tr
 import { ReviewThirdPartyTransfersComponent } from './third-party-transfers/review-transfers/review-transfers.component';
 import { HelpComponent } from './help/help.component';
 import { AppService } from './app.service';
-import { SurveysComponent, DialogOverviewExampleDialogComponent } from './surveys/surveys.component';
+import { SurveysComponent, SurveysDialogComponent } from './surveys/surveys.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +69,7 @@ import { SurveysComponent, DialogOverviewExampleDialogComponent } from './survey
     PocketComponent,
     ReviewTransfersComponent,
     ReviewThirdPartyTransfersComponent,
-    DialogOverviewExampleDialogComponent
+    SurveysDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -83,6 +83,6 @@ import { SurveysComponent, DialogOverviewExampleDialogComponent } from './survey
   ],
   providers: [AuthorizationService, AppService],
   bootstrap: [AppComponent],
-  entryComponents : [SignUpComponent, VerificationComponent, DialogOverviewExampleDialogComponent]
+  entryComponents : [SignUpComponent, VerificationComponent, SurveysDialogComponent]
 })
 export class AppModule { }

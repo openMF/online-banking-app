@@ -89,7 +89,7 @@ export class AppComponent implements OnInit, OnDestroy {
     {
       title: 'SURVEY',
       icon: 'format_list_bulleted',
-      link: 'survey'
+      link: 'surveys'
     },
     {
       title: 'ABOUT US',

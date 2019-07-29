@@ -38,7 +38,7 @@ const routes: Routes = [
   {path: 'apply/savings', component: SavingComponent, canActivate: [AuthGuardGuard]},
   {path: 'apply/shares', component: ShareComponent, canActivate: [AuthGuardGuard]},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardGuard]},
-  {path: 'survey', component: SurveysComponent},
+  {path: 'surveys', component: SurveysComponent},
   {path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuardGuard]},
   {path: 'about-us', component: AboutUsComponent, canActivate: [AuthGuardGuard]},
   {path: 'pocket', component: PocketComponent, canActivate: [AuthGuardGuard]},
