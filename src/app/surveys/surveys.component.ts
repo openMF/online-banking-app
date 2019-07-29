@@ -76,7 +76,6 @@ export class SurveysComponent implements OnInit {
   }
   onSubmit() {
   this.openDialog();
-  console.log('request sent');
 
   }
  openDialog(): void {
