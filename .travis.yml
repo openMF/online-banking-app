@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- '12'
+- '12.4.0'
 dist: trusty
 sudo: required
 branches:
@@ -11,12 +11,11 @@ before_script:
 script:
 - ng lint
 - npm run test-headless
-- ng build --prod --base-href https://openMF.github.io/online-banking-app
+- ng build --prod --base-href https://openmf.github.io/online-banking-app/
 deploy:
   provider: pages
   skip_cleanup: true
-  local_dir: dist/online-banking-app
-  keep-history: true
+  local_dir: ./dist/online-banking-app
   github_token: $GITHUB_TOKEN
   on:
     branch: master
