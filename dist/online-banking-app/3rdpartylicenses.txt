@@ -97,8 +97,6 @@ THE SOFTWARE.
 
 @angular/material/divider
 
-@angular/material/expansion
-
 @angular/material/form-field
 
 @angular/material/icon
@@ -107,21 +105,11 @@ THE SOFTWARE.
 
 @angular/material/menu
 
-@angular/material/progress-bar
-
-@angular/material/radio
-
 @angular/material/select
 
 @angular/material/sidenav
 
 @angular/material/snack-bar
-
-@angular/material/stepper
-
-@angular/material/table
-
-@angular/material/tabs
 
 @angular/material/toolbar
 
