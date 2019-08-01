@@ -6,8 +6,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./verification.component.scss']
 })
 export class VerificationComponent implements OnInit {
-  username: string;
-  password: string;
+  otp: string;
   constructor(
     public dialogRef: MatDialogRef<VerificationComponent>) {}
   onNoClick(): void {
