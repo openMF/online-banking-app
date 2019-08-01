@@ -15,7 +15,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  local_dir: dist/project
+  local_dir: dist/online-banking-app
   keep-history: true
   github_token: $GITHUB_TOKEN
   on:
