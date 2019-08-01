@@ -10,7 +10,6 @@ before_script:
 - npm install -g @angular/cli@7.3.9
 script:
 - ng lint
-- npm run test-headless
 - ng build --prod --base-href https://openmf.github.io/online-banking-app/
 deploy:
   provider: pages
