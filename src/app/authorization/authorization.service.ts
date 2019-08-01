@@ -11,7 +11,6 @@ export class AuthorizationService {
     } else {
       this.userStatus = false;
     }
-
   }
 
 

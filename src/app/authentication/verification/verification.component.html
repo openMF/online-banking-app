@@ -1,20 +1,9 @@
-
-
-  
-
 <form  #loginForm="ngForm" >
-
   <img src="../../../assets/images/MifosX_logo.png" alt="No Image found">
-  <mat-form-field>
-      <input [(ngModel)]="username" name="username" required matInput placeholder="Username">
-    </mat-form-field>
     <mat-form-field>
-        <input [(ngModel)]="password" name="password" type="password" required matInput placeholder="Password">
+        <input [(ngModel)]="otp" name="otp"  required matInput placeholder="OTP">
       </mat-form-field>
-
-      <button  mat-raised-button color="primary" (click)="onSignUp()">Submit</button>
+      <button type="submit" [disabled]="!loginForm.valid"  mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
       <button mat-stroked-button color="accent" (click)="onNoClick()">Registered? Login</button>
-
-
 </form>
 

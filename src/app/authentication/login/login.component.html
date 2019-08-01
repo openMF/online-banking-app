@@ -43,7 +43,7 @@
 
                   <button type="submit" [disabled]="!loginForm.valid"  mat-raised-button id="login-color" (click)="login()">Login</button>
         </form>
-        <button mat-raised-button>Forgot Password ?</button>
+        <button mat-raised-button (click)="onForgotPassword()">Forgot Password ?</button>
         <button mat-raised-button color="accent" (click)="onSignUp()">New User ? Sign Up</button>
 
     </div>

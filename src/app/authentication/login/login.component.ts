@@ -4,6 +4,7 @@ import { AuthorizationService } from 'src/app/authorization/authorization.servic
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { SignUpComponent } from '../sign-up/sign-up.component';
 import { AppService } from 'src/app/app.service';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 export interface DialogData {
   animal: string;
   name: string;
@@ -55,6 +56,16 @@ export class LoginComponent implements OnInit {
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(SignUpComponent, {
+      width: '500px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.animal = result;
+    });
+  }
+  onForgotPassword() {
+    const dialogRef = this.dialog.open(ForgotPasswordComponent, {
       width: '500px',
       data: {name: this.name, animal: this.animal}
     });
