@@ -11,7 +11,7 @@ before_script:
 script:
 - ng lint
 - npm run test-headless
-- ng build --prod --base-href https://github.com/openMF/online-banking-app
+- ng build --prod --base-href https://openMF.github.io/online-banking-app
 deploy:
   provider: pages
   skip_cleanup: true
