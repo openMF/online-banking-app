@@ -55,23 +55,13 @@ export class LoginComponent implements OnInit {
     this.openDialog();
   }
   openDialog(): void {
-    const dialogRef = this.dialog.open(SignUpComponent, {
+    this.dialog.open(SignUpComponent, {
       width: '500px',
-      data: {name: this.name, animal: this.animal}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.animal = result;
     });
   }
   onForgotPassword() {
-    const dialogRef = this.dialog.open(ForgotPasswordComponent, {
+    this.dialog.open(ForgotPasswordComponent, {
       width: '500px',
-      data: {name: this.name, animal: this.animal}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.animal = result;
     });
   }
 }

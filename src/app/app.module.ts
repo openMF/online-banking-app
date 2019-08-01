@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './MaterialModule/material.module';
 import { LoginComponent } from './authentication/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AuthorizationService } from './authorization/authorization.service';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
@@ -31,6 +31,6 @@ import { AppService } from './app.service';
   ],
   providers: [AuthorizationService, AppService],
   bootstrap: [AppComponent],
-  entryComponents : [SignUpComponent, VerificationComponent]
+  entryComponents : [SignUpComponent, VerificationComponent, ForgotPasswordComponent]
 })
 export class AppModule { }

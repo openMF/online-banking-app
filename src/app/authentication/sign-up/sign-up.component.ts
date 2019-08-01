@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
-import { DialogData } from '../login/login.component';
 import { VerificationComponent } from '../verification/verification.component';
 
 @Component({
@@ -13,7 +12,6 @@ export class SignUpComponent implements OnInit {
   password: string;
   constructor(
     public dialogRef: MatDialogRef<SignUpComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
     public dialog: MatDialog) {}
 
   onNoClick(): void {
@@ -26,7 +24,7 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
   }
   openDialog(): void {
-    const dialogRef = this.dialog.open(VerificationComponent, {
+    this.dialog.open(VerificationComponent, {
       width: '500px',
     });
   }
