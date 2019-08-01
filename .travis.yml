@@ -10,11 +10,11 @@ before_script:
 - npm install -g @angular/cli@7.3.9
 script:
 - ng lint
-- npm run test-headless
+- ng test --watch=false --browsers=ChromeHeadless
 - ng build --prod --base-href https://openmf.github.io/online-banking-app/
 deploy:
   provider: pages
-  skip_cleanup: false
+  skip_cleanup: true
   local_dir: ./dist/online-banking-app
   github_token: $GITHUB_TOKEN
   on:
