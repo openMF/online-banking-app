@@ -34,7 +34,6 @@
             ],
             "scripts": [
               "./node_modules/aos/dist/aos.js"
-              
             ],
             "es5BrowserSupport": true
           },

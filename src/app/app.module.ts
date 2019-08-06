@@ -12,6 +12,9 @@ import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AppService } from './app.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PieChartComponent } from './dashboard/pie-chart/pie-chart.component';
+import { LoanService } from './services/loan.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { AppService } from './app.service';
     LoginComponent,
     ForgotPasswordComponent,
     SignUpComponent,
-    VerificationComponent
+    VerificationComponent,
+    DashboardComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -29,7 +34,7 @@ import { AppService } from './app.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthorizationService, AppService],
+  providers: [AuthorizationService, AppService, LoanService],
   bootstrap: [AppComponent],
   entryComponents : [SignUpComponent, VerificationComponent, ForgotPasswordComponent]
 })
