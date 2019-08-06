@@ -12,6 +12,8 @@ import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AppService } from './app.service';
+import { Profile } from 'selenium-webdriver/firefox';
+import { ProfileDialogComponent, ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AppService } from './app.service';
     LoginComponent,
     ForgotPasswordComponent,
     SignUpComponent,
-    VerificationComponent
+    VerificationComponent,
+    ProfileDialogComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -31,6 +35,6 @@ import { AppService } from './app.service';
   ],
   providers: [AuthorizationService, AppService],
   bootstrap: [AppComponent],
-  entryComponents : [SignUpComponent, VerificationComponent, ForgotPasswordComponent]
+  entryComponents : [SignUpComponent, VerificationComponent, ForgotPasswordComponent, ProfileDialogComponent]
 })
 export class AppModule { }

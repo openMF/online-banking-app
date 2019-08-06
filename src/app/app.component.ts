@@ -30,6 +30,16 @@ export class AppComponent implements OnInit, OnDestroy {
       icon: 'person',
       link: 'login'
     },
+    {
+      title: 'Surveys',
+      icon: 'description',
+      link: 'surveys'
+    },
+    {
+      title: 'Profile',
+      icon: 'face',
+      link: 'profile'
+    },
   ];
   title = 'Online-Banking-App-3.0';
   mobileQuery: MediaQueryList;
@@ -41,5 +51,8 @@ export class AppComponent implements OnInit, OnDestroy {
   logout() {
     this.authorizationService.userStatus = false;
     this.router.navigate(['/login']).then();
+  }
+  onProfileComponent() {
+    this.router.navigate(['profile']);
   }
 }

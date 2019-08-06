@@ -1,0 +1,10 @@
+<div mat-dialog-content>
+  <h3>Enter password to confirm</h3>
+  <mat-form-field>
+      <input [(ngModel)]="password" name="password"  matInput placeholder="Enter your password">
+    </mat-form-field> 
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="password" cdkFocusInitial>Ok</button>
+</div>
