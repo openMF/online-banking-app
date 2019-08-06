@@ -1,0 +1,29 @@
+.mat-form-field{
+    width: 100%;
+    padding: 10px;
+    display:block;
+  margin:auto;
+}
+button{
+  display:block;
+  margin:auto;
+  width: 70%;
+  margin-top: 5px;
+}
+mat-card{
+    margin : 10px;
+}
+#profile-picture {
+  background-image: url('../../assets/images/toolbar.png');   
+  background-size: cover;
+  height: 28vh;
+  color:white;
+  font-weight: bold;
+  font-size: 25px;
+  border-radius: 0%;
+  display:block;
+  margin:auto;
+}
+.space{
+  margin: 10px 0px;
+}
