@@ -1,0 +1,115 @@
+<mat-card *ngIf="!isReview && inProcess">
+    <mat-progress-bar mode="determinate" value="{{progressValue}}"></mat-progress-bar>
+</mat-card>
+
+
+<div *ngIf="!inProcess">
+    <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="survey">
+          <th mat-header-cell *matHeaderCellDef> Survey</th>
+          <td mat-cell *matCellDef="let element"> {{element.survey}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="createdBy">
+          <th mat-header-cell *matHeaderCellDef> Created by </th>
+          <td mat-cell *matCellDef="let element"> {{element.createdBy}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="score">
+          <th mat-header-cell *matHeaderCellDef> Score </th>
+          <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element"> 
+              
+                <button class="button-style" (click)="onTakeSurvey()" mat-raised-button color="primary">Take Survey</button>
+
+
+            </td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+
+<mat-card *ngIf="!isReview && inProcess">
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="secondFormGroup" *ngFor="let question of questions">
+      <form>
+        <!-- <ng-template matStepLabel>Fill out your address</ng-template> -->
+        <mat-card> <div class="question">Question : {{question}}</div>  </mat-card>
+        <div class="form-inner">
+ 
+        <mat-radio-group aria-label="Select an option">
+            <mat-radio-button class="radio-style answers" value="1" >One</mat-radio-button>
+            <mat-radio-button class="radio-style answers" value="2" >Two</mat-radio-button>
+            <mat-radio-button class="radio-style answers" value="2" >Three</mat-radio-button>
+            <mat-radio-button class="radio-style answers" value="2" >Four</mat-radio-button>
+          </mat-radio-group>
+
+                   
+        </div>
+        <div>
+          <div class="row">
+            <div class="col-md-6">
+                <button class="button-style" mat-raised-button color="primary" matStepperPrevious>Back</button>
+
+            </div>
+            <div class="col-md-6">
+                <button class="button-style" mat-raised-button color="primary" (click)="onNext()" matStepperNext>Next</button>
+
+              </div>
+              <div *ngIf="question==questionLength" class="col-md-12" class="review-button">
+                  <button (click)="onReview()" class="button-style" mat-raised-button color="accent">Review</button>
+    
+                </div>    
+          </div>
+        </div>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+  
+</mat-card>
+
+
+
+<mat-card *ngIf="isReview">
+  <div *ngFor="let question of questions">
+
+  <mat-card>
+    <h3>Question {{question}}</h3>
+  </mat-card>
+
+  <div class="answer-style">
+    Answer {{question}}
+  </div>
+      
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <button (click)="onEdit()" class="button-style" mat-raised-button color="primary">Edit</button>
+
+    </div>
+    <div class="col-md-6">
+        <button (click)="onSubmit()" class="button-style" mat-raised-button color="primary">Submit</button>
+
+      </div> 
+  </div>
+</mat-card>
