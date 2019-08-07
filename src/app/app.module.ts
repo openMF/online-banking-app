@@ -12,6 +12,7 @@ import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AppService } from './app.service';
+import { TransferComponent } from './transfers/transfer/transfer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AppService } from './app.service';
     LoginComponent,
     ForgotPasswordComponent,
     SignUpComponent,
-    VerificationComponent
+    VerificationComponent,
+    TransferComponent
   ],
   imports: [
     BrowserAnimationsModule,
