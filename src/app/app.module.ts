@@ -7,11 +7,13 @@ import { MaterialModule } from './MaterialModule/material.module';
 import { LoginComponent } from './authentication/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AuthorizationService } from './authorization/authorization.service';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AppService } from './app.service';
+import { AuthorizationService } from './authorization/authorization.service';
+import { NotificationsComponent, NotificationsDialogComponent } from './notifications/notifications.component';
+import { NotificationsService } from './services/notifications.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AppService } from './app.service';
     LoginComponent,
     ForgotPasswordComponent,
     SignUpComponent,
-    VerificationComponent
+    VerificationComponent,
+    NotificationsComponent,
+    NotificationsDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -29,8 +33,8 @@ import { AppService } from './app.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthorizationService, AppService],
+  providers: [AppService, AuthorizationService, NotificationsService],
   bootstrap: [AppComponent],
-  entryComponents : [SignUpComponent, VerificationComponent, ForgotPasswordComponent]
+  entryComponents : [SignUpComponent, VerificationComponent, ForgotPasswordComponent, NotificationsDialogComponent]
 })
 export class AppModule { }

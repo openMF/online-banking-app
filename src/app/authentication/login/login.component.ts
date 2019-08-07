@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthorizationService } from 'src/app/authorization/authorization.service';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { SignUpComponent } from '../sign-up/sign-up.component';
 import { AppService } from 'src/app/app.service';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { AuthorizationService } from 'src/app/authorization/authorization.service';
 export interface DialogData {
   animal: string;
   name: string;
