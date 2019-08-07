@@ -30,6 +30,11 @@ export class AppComponent implements OnInit, OnDestroy {
       icon: 'person',
       link: 'login'
     },
+    {
+      title: 'Third Party Transfer',
+      icon: 'compare_arrows',
+      link: 'third-party-transfer'
+    },
   ];
   title = 'Online-Banking-App-3.0';
   mobileQuery: MediaQueryList;
