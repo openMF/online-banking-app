@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './MaterialModule/material.module';
 import { LoginComponent } from './authentication/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthorizationService } from './authorization/authorization.service';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AppService } from './app.service';
+import { SurveysService } from './services/surveys.service';
+import { SurveysDialogComponent, SurveysComponent } from './surveys/surveys.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AppService } from './app.service';
     LoginComponent,
     ForgotPasswordComponent,
     SignUpComponent,
-    VerificationComponent
+    VerificationComponent,
+    SurveysDialogComponent,
+    SurveysComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -27,10 +31,11 @@ import { AppService } from './app.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [AuthorizationService, AppService],
+  providers: [AuthorizationService, AppService, SurveysService],
   bootstrap: [AppComponent],
-  entryComponents : [SignUpComponent, VerificationComponent, ForgotPasswordComponent]
+  entryComponents : [SignUpComponent, VerificationComponent, ForgotPasswordComponent, SurveysDialogComponent]
 })
 export class AppModule { }
