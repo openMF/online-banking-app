@@ -1,0 +1,42 @@
+<mat-card>
+<div class="example-container">
+    <mat-form-field>
+        <mat-select placeholder="Pay To">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-select placeholder="Pay From">
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Amount" type="number" class="example-right-align">
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+<div class="row">
+  <div class="col-md-6">
+    Transfer Date
+  </div>
+  <div class="col-md-6">
+    <mat-icon>date_range</mat-icon> {{date}}
+    </div>
+</div>
+  <mat-form-field>
+    <textarea matInput placeholder="Remarks"></textarea>
+  </mat-form-field>
+
+  <div class="row">
+    <div class="col-md-6">
+        <button mat-raised-button color="warn">Cancel</button>
+    </div>
+    <div class="col-md-6">
+        <button mat-raised-button color="primary">Review Transfer</button>
+      </div>
+  </div>
+
+  
+</div>
+</mat-card>
