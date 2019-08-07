@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-content>
+      We are here to help you!
+      <p>You can connect with us via our chat bot/ customer support as well!</p>
+  </mat-card-content>
+  
+</mat-card>
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false" *ngFor="let question of questions">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          What are the different ways you can operate your accounts?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>
+        
+        You can operate your bank accounts in different ways like
+
+a) Internet banking
+
+b) Telephone or Mobile banking
+
+c) Branch or Over the counter service
+
+d) ATM ( Automated Teller Machine)
+
+      </p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  
