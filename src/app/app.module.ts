@@ -7,11 +7,12 @@ import { MaterialModule } from './MaterialModule/material.module';
 import { LoginComponent } from './authentication/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AuthorizationService } from './authorization/authorization.service';
+import { AuthorizationService } from './services/authorization.service';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AppService } from './app.service';
+import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { AppService } from './app.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthorizationService, AppService],
+  providers: [AuthorizationService, AppService, AuthenticationService],
   bootstrap: [AppComponent],
   entryComponents : [SignUpComponent, VerificationComponent, ForgotPasswordComponent]
 })
