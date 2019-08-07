@@ -1,0 +1,10 @@
+
+<div mat-dialog-content>
+  <p>Are you sure you want to delete ?</p>
+  <p id="warning-message">You would no longer be able to retrieve it if you delete it!</p>
+</div>
+
+<div mat-dialog-actions>
+  <button [mat-dialog-close]="true" mat-button mat-raised-button color="primary">Yes</button>
+  <button  mat-button mat-raised-button color="warn" cdkFocusInitial (click)="onNoClick()">No</button>
+</div>

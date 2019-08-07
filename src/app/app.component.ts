@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ChangeDetectorRef, OnDestroy} from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { AuthorizationService } from './authorization/authorization.service';
 import { Router } from '@angular/router';
 import { AppService } from './app.service';
 @Component({
@@ -12,7 +11,6 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit, OnDestroy {
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
-              private authorizationService: AuthorizationService,
               private router: Router,
               private appService: AppService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -30,6 +28,11 @@ export class AppComponent implements OnInit, OnDestroy {
       icon: 'person',
       link: 'login'
     },
+    {
+      title: 'Notifications',
+      icon: 'notifications',
+      link: 'notifications'
+    },
   ];
   title = 'Online-Banking-App-3.0';
   mobileQuery: MediaQueryList;
@@ -39,7 +42,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-    this.authorizationService.userStatus = false;
     this.router.navigate(['/login']).then();
+  }
+  onNotificationComponent() {
+    this.router.navigate(['/notifications']);
   }
 }
