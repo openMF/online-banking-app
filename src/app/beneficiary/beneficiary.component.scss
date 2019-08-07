@@ -1,0 +1,69 @@
+.example-container {
+    width: 1000px;
+  overflow: auto;
+  display: block;
+  margin: auto;
+  }
+  
+  table {
+    width: 1000px;
+  }
+  
+  td.mat-column-star {
+    width: 20px;
+    padding-right: 8px;
+  }
+  
+  th.mat-column-position, td.mat-column-position {
+    padding-left: 8px;
+  }
+  
+  .mat-table-sticky:first-child {
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .mat-table-sticky:last-child {
+    border-left: 1px solid #e0e0e0;
+  }
+  
+  mat-card{
+      margin:10px;
+      border-radius: 0px;
+  }
+
+  /* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* Styles */
+    .example-container {
+        width: 100%;
+      overflow: auto;
+      }
+      
+      table {
+        width: 800px;
+      }
+      
+      td.mat-column-star {
+        width: 20px;
+        padding-right: 8px;
+      }
+      
+      th.mat-column-position, td.mat-column-position {
+        padding-left: 8px;
+      }
+      
+      .mat-table-sticky:first-child {
+        border-right: 1px solid #e0e0e0;
+      }
+      
+      .mat-table-sticky:last-child {
+        border-left: 1px solid #e0e0e0;
+      }
+      
+      mat-card{
+          margin:10px;
+          border-radius: 0px;
+      }
+    
+    }
+
