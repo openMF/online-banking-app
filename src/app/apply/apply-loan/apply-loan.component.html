@@ -1,0 +1,39 @@
+<mat-card>
+  <div class="example-container">
+      <mat-form-field>
+          <mat-select placeholder="Loan product options">
+            <mat-option *ngFor="let loan of loans" value="option">{{loan}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field>
+            <mat-select placeholder="Purpose of Loan">
+              <mat-option *ngFor="let purpose of purposes" value="option">{{purpose}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Principal" type="number" class="example-right-align">
+              <span matPrefix>$&nbsp;</span>
+              <span matSuffix>.00</span>
+            </mat-form-field>
+            <mat-form-field>
+              <input [(ngModel)]="currency" matInput placeholder="Currency" class="example-right-align" disabled>
+            </mat-form-field>
+            <mat-form-field>
+              <input [(ngModel)]="date" matInput placeholder="Submitted on" class="example-right-align" disabled>
+            </mat-form-field>
+            <mat-form-field>
+              <input [(ngModel)]="date" matInput placeholder="Expected disbursement date" class="example-right-align" disabled>
+            </mat-form-field>
+    <div class="row">
+      <div class="col-md-6">
+          <button mat-raised-button color="warn">Cancel</button>
+      </div>
+      <div class="col-md-6">
+          <button mat-raised-button color="primary">Apply</button>
+        </div>
+    </div>
+  
+    
+  </div>
+  </mat-card>

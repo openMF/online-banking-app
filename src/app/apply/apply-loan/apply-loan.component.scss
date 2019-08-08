@@ -1,0 +1,32 @@
+mat-card{
+    display:block;
+    margin: 20px auto;
+    width:50%;
+  }
+  .example-container {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .example-container > * {
+      width: 100%;
+    }
+    button{
+      display:block;
+      margin: auto;
+      width:80%;
+    }
+  
+    @media only screen and (max-width: 768px) {
+      /* For mobile phones: */
+      mat-card{
+        display:block;
+        margin: 15px auto;
+        width:80%;
+      }
+      button{
+        display:block;
+        margin: 5px auto;
+        width:80%;
+      }
+    }
