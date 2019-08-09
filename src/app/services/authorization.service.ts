@@ -8,8 +8,7 @@ export class AuthorizationService {
   constructor(private authenticationService: AuthenticationService) { }
   login(username: string, password: string) {
     if (username === 'mifos' && password === 'mifos') {
-      this.authenticationService.authenticate().subscribe((data) =>
-      console.log(data));
+      this.authenticationService.authenticate().subscribe((data) => {});
       this.userStatus = true;
     } else {
       this.userStatus = false;

@@ -28,11 +28,6 @@ export class AppComponent implements OnInit, OnDestroy {
   isLoggedIn = false;
   sidenavContents: any = [
     {
-      title: 'login',
-      icon: 'person',
-      link: 'login'
-    },
-    {
       title: 'Dashboard',
       icon: 'dashboard',
       link: 'dashboard'
@@ -40,13 +35,15 @@ export class AppComponent implements OnInit, OnDestroy {
   ];
   title = 'Online-Banking-App-3.0';
   mobileQuery: MediaQueryList;
-  ngOnInit() {}
+  ngOnInit() {
+  }
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this.mobileQueryListener);
   }
 
   logout() {
     this.authorizationService.userStatus = false;
-    this.router.navigate(['/login']).then();
+    this.isLoggedIn = false;
+    this.router.navigate(['/']).then();
   }
 }
