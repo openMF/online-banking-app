@@ -7,14 +7,17 @@ import { MaterialModule } from './MaterialModule/material.module';
 import { LoginComponent } from './authentication/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AuthorizationService } from './authorization/authorization.service';
+import { AuthorizationService } from './services/authorization.service';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AppService } from './app.service';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PieChartComponent } from './dashboard/pie-chart/pie-chart.component';
 import { LoanService } from './services/loan.service';
+import { AuthenticationService } from './services/authentication.service';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,7 @@ import { LoanService } from './services/loan.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthorizationService, AppService, LoanService],
+  providers: [AuthorizationService, AppService, AuthenticationService, LoanService],
   bootstrap: [AppComponent],
   entryComponents : [SignUpComponent, VerificationComponent, ForgotPasswordComponent]
 })

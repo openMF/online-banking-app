@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ChangeDetectorRef, OnDestroy} from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { AuthorizationService } from './authorization/authorization.service';
+import { AuthorizationService } from './services/authorization.service';
 import { Router } from '@angular/router';
 import { AppService } from './app.service';
+import { AuthenticationService } from './services/authentication.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
               private authorizationService: AuthorizationService,
               private router: Router,
-              private appService: AppService) {
+              private appService: AppService,
+              private authenticationService: AuthenticationService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
