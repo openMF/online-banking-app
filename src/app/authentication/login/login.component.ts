@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthorizationService } from 'src/app/authorization/authorization.service';
+import { AuthorizationService } from 'src/app/services/authorization.service';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { SignUpComponent } from '../sign-up/sign-up.component';
 import { AppService } from 'src/app/app.service';
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   selected = 'English (Default)';
 
   constructor(private router: Router,
-              private authService: AuthorizationService,
+              private authorizationService: AuthorizationService,
               private snackBar: MatSnackBar,
               public dialog: MatDialog,
               private appService: AppService
@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   login() {
-    this.authService.login(this.username, this.password);
-    if (this.authService.userStatus === true) {
+    this.authorizationService.login(this.username, this.password);
+    if (this.authorizationService.userStatus === true) {
       this.appService.emitConfig(true);
       this.router.navigate(['/dashboard']).then();
     } else {
