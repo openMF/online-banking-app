@@ -32,7 +32,6 @@ import { SharesAccountPieChartComponent } from './dashboard/shares-account-pie-c
     DashboardComponent,
     SavingsAccountPieChartComponent,
     LoansAccountPieChartComponent,
-    DoughnutChartComponent,
     SharesAccountPieChartComponent
   ],
   imports: [
