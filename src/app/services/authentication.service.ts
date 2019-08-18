@@ -23,7 +23,6 @@ export class AuthenticationService {
         httpOptions).subscribe((data: any) => console.log(data));
       return true;
      } else {
-       
        return false;
      }
 
