@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   name: string;
 
   selected = 'English (Default)';
-
+  userStatus = false;
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
               private snackBar: MatSnackBar,
@@ -36,7 +36,12 @@ export class LoginComponent implements OnInit {
   }
   login(ngForm: NgForm) {
     console.log(ngForm.value);
-    this.authenticationService.login(ngForm.value.username, ngForm.value.password);
+    this.userStatus = this.authenticationService.login(ngForm.value.username, ngForm.value.password);
+    if (this.userStatus === true) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['']);
+    }
     // this.authenticationService.login(ngForm.value.username, ngForm.value.password)
     // .subscribe((data: any) => {
     //   if (data) {

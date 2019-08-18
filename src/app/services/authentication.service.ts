@@ -18,13 +18,18 @@ export class AuthenticationService {
       localStorage.setItem(this.key, 'bWlmb3M6cGFzc3dvcmQ=');
       this.userStatus = true;
       this.appService.emitConfig(this.userStatus);
+      this.http.post<any>(
+        'https://mobile.openmf.org/fineract-provider/api/v1/authentication?username=mifos&password=password',
+        httpOptions).subscribe((data: any) => console.log(data));
+      return true;
+     } else {
+       return false;
      }
+
     // return this.http.post<any>(
     //   'https://mobile.openmf.org/fineract-provider/api/v1/authentication?username=' + `${username}` + '&password=' + `${password}`,
     //   httpOptions).subscribe((data: any) => console.log(data));
     // }
-     this.http.post<any>(
-      'https://mobile.openmf.org/fineract-provider/api/v1/authentication?username=mifos&password=password',
-      httpOptions).subscribe((data: any) => console.log(data));
+
 }
 }
