@@ -27,7 +27,7 @@ export class SignUpComponent implements OnInit {
     console.log(ngform.value);
     this.userService.onCreateUser(ngform.value).subscribe((data: any) => {
       console.log(data);
-    })
+    });
     this.openDialog();
   }
   ngOnInit() {
