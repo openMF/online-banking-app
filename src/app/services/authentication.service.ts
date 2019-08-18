@@ -1,23 +1,30 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AppService } from '../app.service';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json',
-'Fineract-Platform-TenantId': 'default',
-'Access-Control-Allow-Origin': '*',
-'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'})
+'Fineract-Platform-TenantId': 'mobile'})
 };
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-
-  constructor(private http: HttpClient) { }
-
-  authenticate(): Observable<any[]> {
-    return this.http.get<any[]>(
-    'https://demo.openmf.org/fineract-provider/api/v1/authentication?username=mifos&password=password',
-    httpOptions);
-  }
-
+  userStatus = false;
+  key = 'token';
+  constructor(private http: HttpClient, private appService: AppService) { }
+   login(username: string, password: string) {
+     if (username === 'mifos' && password === 'password') {
+      localStorage.setItem(this.key, 'bWlmb3M6cGFzc3dvcmQ=');
+      this.userStatus = true;
+      this.appService.emitConfig(this.userStatus);
+     }
+    // return this.http.post<any>(
+    //   'https://mobile.openmf.org/fineract-provider/api/v1/authentication?username=' + `${username}` + '&password=' + `${password}`,
+    //   httpOptions).subscribe((data: any) => console.log(data));
+    // }
+     this.http.post<any>(
+      'https://mobile.openmf.org/fineract-provider/api/v1/authentication?username=mifos&password=password',
+      httpOptions).subscribe((data: any) => console.log(data));
+}
 }

@@ -12,12 +12,15 @@ import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 import { VerificationComponent } from './authentication/verification/verification.component';
 import { AppService } from './app.service';
-
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { PieChartComponent } from './dashboard/pie-chart/pie-chart.component';
+import { SavingsAccountPieChartComponent } from './dashboard/savings-account-pie-chart/savings-account-pie-chart.component';
 import { LoanService } from './services/loan.service';
 import { AuthenticationService } from './services/authentication.service';
-
+import { AccountsService } from './services/accounts.service';
+import { LoansAccountPieChartComponent } from './dashboard/loans-account-pie-chart/loans-account-pie-chart.component';
+import { DoughnutChartComponent, PieChartComponent } from 'angular-d3-charts'; // this is needed!
+import { GoogleChartsModule } from 'angular-google-charts';
+import { SharesAccountPieChartComponent } from './dashboard/shares-account-pie-chart/shares-account-pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,11 @@ import { AuthenticationService } from './services/authentication.service';
     SignUpComponent,
     VerificationComponent,
     DashboardComponent,
-    PieChartComponent
+    SavingsAccountPieChartComponent,
+    LoansAccountPieChartComponent,
+    PieChartComponent,
+    DoughnutChartComponent,
+    SharesAccountPieChartComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -35,9 +42,14 @@ import { AuthenticationService } from './services/authentication.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-  ],
-  providers: [AuthorizationService, AppService, AuthenticationService, LoanService],
+    FormsModule,
+    GoogleChartsModule.forRoot(),
+    ],
+  providers: [AuthorizationService,
+     AppService,
+     AuthenticationService,
+     LoanService,
+     AccountsService],
   bootstrap: [AppComponent],
   entryComponents : [SignUpComponent, VerificationComponent, ForgotPasswordComponent]
 })

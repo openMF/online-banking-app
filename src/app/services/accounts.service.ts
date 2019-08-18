@@ -10,12 +10,15 @@ Authorization: 'Basic bWlmb3M6cGFzc3dvcmQ=' })
 @Injectable({
   providedIn: 'root'
 })
-export class SharesService {
+export class AccountsService {
 
   constructor(private http: HttpClient) { }
 
-  getShareAccounts(): Observable<any[]> {
+ // Returns Array of Client Accounts which comprises of Savings, Loans and Shares accounts.
+  getClientAccounts(): Observable<any[]> {
     return this.http.get<any[]>
-    ('https://mobile.openmf.org/fineract-provider/api/v1/accounts/share?username=mifos&password=password', httpOptions);
+    ('https://mobile.openmf.org/fineract-provider/api/v1/clients/1/accounts/' +
+    '?username=mifos&password=password',
+     httpOptions);
   }
 }

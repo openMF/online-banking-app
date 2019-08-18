@@ -36,13 +36,17 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'Online-Banking-App-3.0';
   mobileQuery: MediaQueryList;
   ngOnInit() {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['/dashboard']);
+    }
+    this.authenticationService.login('mifos', 'password');
   }
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this.mobileQueryListener);
   }
 
   logout() {
-    this.authorizationService.userStatus = false;
+    // this.authorizationService.userStatus = false;
     this.isLoggedIn = false;
     this.router.navigate(['/']).then();
   }

@@ -5,7 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuardGuard } from './authorization/auth-guard.guard';
 const routes: Routes = [
   {path: '', component : LoginComponent},
-  {path: 'dashboard', component : DashboardComponent, canActivate: [AuthGuardGuard] },
+  {path: 'dashboard', component : DashboardComponent},
   {path: '**', redirectTo : 'dashboard'}
 ];
 @NgModule({

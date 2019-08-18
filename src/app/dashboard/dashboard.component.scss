@@ -29,6 +29,13 @@
 .mid-card-left{
   display: inline;
 }
+.accounts{
+  background-color: greenyellow;
+}
+.loans {
+  background-color: red;
+
+}
 .mid-card-right{
   float : right;
   display: inline;
@@ -88,7 +95,9 @@
 .example-full-width{
   width :100%;
 }
-#pie-chart{
-  display: block;
- margin-top: -50px;
+.font-style {
+  font-family: 'Lexend Deca', sans-serif;
+}
+#charts {
+margin-top:5px;
 }
