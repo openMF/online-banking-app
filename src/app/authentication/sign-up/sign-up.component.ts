@@ -12,6 +12,9 @@ import { NgForm } from '@angular/forms';
 export class SignUpComponent implements OnInit {
   username: string;
   password: string;
+  firstname: string;
+  lastname: string;
+  email: string;
   constructor(
     public dialogRef: MatDialogRef<SignUpComponent>,
     public dialog: MatDialog,
