@@ -3,8 +3,9 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AppService } from '../app.service';
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json',
-'Fineract-Platform-TenantId': 'mobile'})
+  headers: new HttpHeaders(
+  { 'Content-Type': 'application/json',
+    'Fineract-Platform-TenantId': 'mobile'})
 };
 @Injectable({
   providedIn: 'root'

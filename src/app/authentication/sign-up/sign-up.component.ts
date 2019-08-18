@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { VerificationComponent } from '../verification/verification.component';
+import { UserService } from 'src/app/services/user.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,13 +14,17 @@ export class SignUpComponent implements OnInit {
   password: string;
   constructor(
     public dialogRef: MatDialogRef<SignUpComponent>,
-    public dialog: MatDialog) {}
-
+    public dialog: MatDialog,
+    private userService: UserService) {}
   onNoClick(): void {
     this.dialogRef.close();
   }
-  onSignUp() {
+  onSignUp(ngform: NgForm) {
     this.onNoClick();
+    console.log(ngform.value);
+    this.userService.onCreateUser(ngform.value).subscribe((data: any) => {
+      console.log(data);
+    })
     this.openDialog();
   }
   ngOnInit() {

@@ -48,6 +48,7 @@ export class AppComponent implements OnInit, OnDestroy {
   logout() {
     // this.authorizationService.userStatus = false;
     this.isLoggedIn = false;
+    localStorage.clear();
     this.router.navigate(['/']).then();
   }
 }
