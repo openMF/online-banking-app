@@ -1,7 +1,29 @@
 
     
     <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-     
+        <mat-toolbar id="header-background" class="example-toolbar shadow" *ngIf="isLoggedIn">
+            <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+            <h1 class="example-app-name">MIFOS</h1>
+            <div id="toolbar-item">
+                <button appToolbarItem  mat-button [matMenuTriggerFor]="bell"> <mat-icon>notifications</mat-icon> </button>
+                <mat-menu
+                
+                 #bell="matMenu" xPosition="before">
+                  <button mat-menu-item>You have successfull registered</button>
+                  <button mat-menu-item>Welcome to mifos initiative</button>
+                  <button mat-menu-item (click)="onNotificationComponent()" id="read-more">Read more...</button>
+                </mat-menu>
+        
+                <button appToolbarItem  mat-button [matMenuTriggerFor]="user" > <mat-icon>person</mat-icon> </button>
+                <mat-menu #user="matMenu" xPosition="before">
+                  <button mat-menu-item (click)="onProfileComponent()">Profile</button>
+                  <button mat-menu-item (click)="logout()">Log Out</button>
+                </mat-menu>
+            
+               
+            </div>
+          
+          </mat-toolbar>
       <mat-sidenav-container class="example-sidenav-container"
                              [style.marginTop.px]="mobileQuery.matches ? 56 : 0" >
         <mat-sidenav
@@ -26,29 +48,7 @@
         </mat-sidenav>
         <mat-sidenav-content>
 
-            <mat-toolbar id="header-background" class="example-toolbar shadow" *ngIf="isLoggedIn">
-                <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-                <h1 class="example-app-name">MIFOS</h1>
-                <div id="toolbar-item">
-                    <button appToolbarItem  mat-button [matMenuTriggerFor]="bell"> <mat-icon>notifications</mat-icon> </button>
-                    <mat-menu
-                    
-                     #bell="matMenu" xPosition="before">
-                      <button mat-menu-item>You have successfull registered</button>
-                      <button mat-menu-item>Welcome to mifos initiative</button>
-                      <button mat-menu-item (click)="onNotificationComponent()" id="read-more">Read more...</button>
-                    </mat-menu>
             
-                    <button appToolbarItem  mat-button [matMenuTriggerFor]="user" > <mat-icon>person</mat-icon> </button>
-                    <mat-menu #user="matMenu" xPosition="before">
-                      <button mat-menu-item (click)="onProfileComponent()">Profile</button>
-                      <button mat-menu-item (click)="logout()">Log Out</button>
-                    </mat-menu>
-                
-                   
-                </div>
-              
-              </mat-toolbar>
             
           <router-outlet></router-outlet>
         </mat-sidenav-content>
